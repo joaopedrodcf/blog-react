@@ -1,10 +1,8 @@
-# curriculum
+# blog-react
 
-Curriculum using CSS Grid , Flexbox and React
+Blog created with React and Radium for CSS in JS 
 
-# Website
-
-TODO
+# Website(TODO)
 
 ## Getting Started
 
@@ -32,6 +30,10 @@ Now its ready to use
 
 You need to install Node.js
 
+To use the eslint in VSCODE use this configurations:
+
+* [cra-eslint-flow-babel-prettier](https://github.com/joaopedrodcf/cra-eslint-flow-babel-prettier) - A project with CRA already configurated with eslint, flow, babel and prettier
+
 ## Creating production builds (TODO)
 
 You will work with the master branch
@@ -51,12 +53,14 @@ And after some minutes the site will be live with your changes
 ## Built With
 
 * [npm](https://github.com/npm/npm) - Package manager for javascript
+* [yarn](https://github.com/yarnpkg/yarn/) - 📦🐈 Fast, reliable, and secure dependency management.
 * [react](https://github.com/facebook/react) - A declarative, efficient, and flexible JavaScript library for building user interfaces
 * [react-router](https://github.com/ReactTraining/react-router) - Declarative routing for React
 * [google-fonts](https://github.com/google/fonts) - Font files available from Google Fonts
 * [1001freefonts](https://www.1001freefonts.com/edo.font) - 1001 free fonts
 * [coolors](https://coolors.co/) - The super fast color schemes generator!
 * [radium](https://github.com/FormidableLabs/radium) - A toolchain for React component styling.
+* [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
 
 ## my project setup
 
