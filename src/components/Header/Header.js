@@ -1,7 +1,6 @@
 import React from 'react';
-import Radium from 'radium';
-import styles from './Header.style';
-import NavLinks from './NavLinks';
+import Container from './style';
+import NavLinks from './NavLinks/NavLinks';
 import Logo from './Logo/Logo';
 
 class Header extends React.Component {
@@ -22,12 +21,12 @@ class Header extends React.Component {
 
   render() {
     return (
-      <header style={styles.header}>
+      <Container>
         <Logo />
         <NavLinks />
-      </header>
+      </Container>
     );
   }
 }
 
-export default Radium(Header);
+export default Header;
