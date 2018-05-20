@@ -1,19 +1,12 @@
 import React from 'react';
-import Radium from 'radium';
-import styles from './Footer.style';
+import Container from './style';
+import Links from './Links/Links';
 
 const Footer = () => (
-  <footer style={styles.footer}>
-    <div className="footer-links">
-      <a href="https://github.com/joaopedrodcf">
-        <i className="fab fa-github fa-2x" />
-      </a>
-      <a href="https://www.linkedin.com/in/joaoferr93/">
-        <i className="fab fa-linkedin fa-2x" />
-      </a>
-    </div>
+  <Container>
+    <Links />
     <div>© Copyright João Ferreira 2018</div>
-  </footer>
+  </Container>
 );
 
-export default Radium(Footer);
+export default Footer;

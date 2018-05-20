@@ -1,6 +1,6 @@
 # blog-react
 
-Blog created with React and Radium for CSS in JS 
+Blog created with React and styled-components
 
 # Website(TODO)
 
@@ -59,9 +59,9 @@ And after some minutes the site will be live with your changes
 * [google-fonts](https://github.com/google/fonts) - Font files available from Google Fonts
 * [1001freefonts](https://www.1001freefonts.com/edo.font) - 1001 free fonts
 * [coolors](https://coolors.co/) - The super fast color schemes generator!
-* [radium](https://github.com/FormidableLabs/radium) - A toolchain for React component styling.
 * [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
 * [normalize.css](https://github.com/necolas/normalize.css) - A modern alternative to CSS resets
+* [styled-components](https://github.com/styled-components/styled-components) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅
 ## my project setup
 
 * [babel](https://github.com/babel/babel) - 🐠 Babel is a compiler for writing next generation JavaScript.

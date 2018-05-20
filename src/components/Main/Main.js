@@ -1,7 +1,6 @@
 import React from 'react';
-import Radium from 'radium';
-import styles from './Main.style';
+import Container from './style';
 
-const Main = () => <div style={styles.main}>afsaf</div>;
+const Main = () => <Container>afsaf</Container>;
 
-export default Radium(Main);
+export default Main;

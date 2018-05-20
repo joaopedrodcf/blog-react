@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import styles from './Header.style';
 import NavLinks from './NavLinks';
-import Logo from './Logo';
+import Logo from './Logo/Logo';
 
 class Header extends React.Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class Header extends React.Component {
     return (
       <header style={styles.header}>
         <Logo />
-
         <NavLinks />
       </header>
     );
