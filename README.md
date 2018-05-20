@@ -61,7 +61,7 @@ And after some minutes the site will be live with your changes
 * [coolors](https://coolors.co/) - The super fast color schemes generator!
 * [radium](https://github.com/FormidableLabs/radium) - A toolchain for React component styling.
 * [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
-
+* [normalize.css](https://github.com/necolas/normalize.css) - A modern alternative to CSS resets
 ## my project setup
 
 * [babel](https://github.com/babel/babel) - 🐠 Babel is a compiler for writing next generation JavaScript.

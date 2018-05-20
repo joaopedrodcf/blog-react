@@ -1,22 +1,12 @@
+import 'normalize.css';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 
-const Component = ({ a, b }) => (
-  <div>
-    <button onClick={b}>LOL {a}</button>
-  </div>
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>,
+  document.getElementById('root')
 );
-
-export default class SecondComponent extends React.Component {
-  state = {
-    field1: 'one'
-  };
-
-  handleB = () => {
-    console.log('LOL');
-  };
-
-  render() {
-    const { field1 } = this.state;
-    return <Component a={field1} b={this.handleB} />;
-  }
-}
