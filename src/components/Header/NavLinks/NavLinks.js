@@ -1,8 +1,8 @@
 import React from 'react';
 import { Nav, Link } from './style';
 
-const NavLinks = () => (
-  <Nav>
+const NavLinks = props => (
+  <Nav {...props}>
     <Link exact to="/">
       Home
     </Link>

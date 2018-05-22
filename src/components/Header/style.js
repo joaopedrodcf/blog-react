@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.header`
+export const Container = styled.header`
   align-items: center;
   background-color: #13293d;
   background-position: center;
@@ -9,7 +9,19 @@ const Container = styled.header`
   display: flex;
   grid-area: header;
   justify-content: space-between;
-  margin: 0;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: unset;
+  }
+
+  /* Children style */
+  > * {
+    background-color: #13293d;
+  }
 `;
 
-export default Container;
+export const ContainerLogoIcon = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

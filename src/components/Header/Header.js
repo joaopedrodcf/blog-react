@@ -1,7 +1,8 @@
 import React from 'react';
-import Container from './style';
+import { Container, ContainerLogoIcon } from './style';
 import NavLinks from './NavLinks/NavLinks';
 import Logo from './Logo/Logo';
+import Button from './Button/Button';
 
 class Header extends React.Component {
   constructor(props) {
@@ -15,15 +16,17 @@ class Header extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-
     this.setState({ toogle: !this.state.toogle });
   }
 
   render() {
     return (
       <Container>
-        <Logo />
-        <NavLinks />
+        <ContainerLogoIcon>
+          <Logo />
+          <Button handleClick={this.handleClick} />
+        </ContainerLogoIcon>
+        <NavLinks {...this.state} />
       </Container>
     );
   }

@@ -2,12 +2,16 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  margin: auto 10px;
   padding: 0;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    /*Links begin closed when screen is small*/
+    ${props => !props.toogle && 'display: none;'};
+  }
 `;
 
 export const Link = styled(NavLink).attrs({
@@ -18,6 +22,7 @@ export const Link = styled(NavLink).attrs({
   text-decoration: none;
   color: white;
   border-bottom: 4px solid transparent;
+
   &:hover {
     border-bottom: 4px solid #fff;
   }
