@@ -7,9 +7,11 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+
   @media (max-width: 700px) {
     flex-direction: column;
-    /*Links begin closed when screen is small*/
+
+    /* Links begin closed when screen is small */
     ${props => !props.toogle && 'display: none;'};
   }
 `;
@@ -26,6 +28,7 @@ export const Link = styled(NavLink).attrs({
   &:hover {
     border-bottom: 4px solid #fff;
   }
+
   &.active {
     border-bottom: 4px solid #fff;
   }
