@@ -26,15 +26,31 @@ export const Article = styled.div`
 
   > h3 {
     margin-bottom: 4px;
+    color: rgba(33, 37, 41, 1);
+    font-size: 1.5em;
   }
 
   > h4 {
     margin-bottom: 40px;
+    color: rgba(33, 37, 41, 0.7);
+    font-size: 1.3em;
+  }
+
+  > p {
+    text-align: justify;
+    color: rgba(33, 37, 41, 1);
+    font-size: 1.1em;
   }
 `;
 
 export const Button = styled.button`
   grid-area: button;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 10px 2px;
+  border: none;
+  background-color: rgba(27, 152, 224, 0.5);
+
+  &:hover {
+    transform: scale(1.04);
+    background-color: rgba(27, 152, 224, 0.9);
+  }
 `;

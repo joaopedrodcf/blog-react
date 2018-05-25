@@ -8,6 +8,7 @@ const Link = styled.a`
   text-decoration: none;
   color: #e8f1f2;
   margin-bottom: 10px;
+
   &:hover {
     transform: scale(1.2);
   }
