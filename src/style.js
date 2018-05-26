@@ -8,5 +8,13 @@ const Global = styled.div`
   grid-gap: 20px;
   font-family: 'Open Sans', sans-serif;
   height: 100%;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 12fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 0.1fr 12fr 0.1fr;
+  }
 `;
 export default Global;

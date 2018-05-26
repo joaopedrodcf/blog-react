@@ -5,7 +5,7 @@ const Container = styled.button`
   border: none;
   display: none;
 
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     display: unset;
   }
 `;

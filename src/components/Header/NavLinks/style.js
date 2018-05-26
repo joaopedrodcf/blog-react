@@ -8,7 +8,7 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     flex-direction: column;
 
     /* Links begin closed when screen is small */

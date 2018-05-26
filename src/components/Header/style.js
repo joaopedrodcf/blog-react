@@ -10,7 +10,7 @@ export const Container = styled.header`
   grid-area: header;
   justify-content: space-between;
 
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     flex-direction: column;
     align-items: unset;
   }
