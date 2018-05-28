@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Link = styled.a`
-  margin-left: 20px;
+  margin: 0 20px;
   display: inline-block;
   transition: 0.3s;
   font-weight: bold;

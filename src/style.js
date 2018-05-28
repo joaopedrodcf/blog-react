@@ -9,8 +9,8 @@ const Global = styled.div`
   font-family: 'Open Sans', sans-serif;
   height: 100%;
 
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr 12fr 1fr;
+  @media (max-width: 1200px) {
+    grid-template-columns: 2fr 10fr 2fr;
   }
 
   @media (max-width: 600px) {

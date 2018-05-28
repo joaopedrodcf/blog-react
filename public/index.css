@@ -10,4 +10,16 @@ html,
   height: 100%;
 }
 
+/*
+CSS DEBUG
+https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3
+*/
+/*
+*:not(path):not(g) {
+  color:                    hsla(210, 100%, 100%, 0.9) !important;
+  background:               hsla(210, 100%,  50%, 0.5) !important;
+  outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
 
+  box-shadow: none !important;
+}
+*/

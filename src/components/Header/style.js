@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   align-items: center;
-  background-color: #13293d;
+  background-color: rgba(19, 41, 61, 1);
   background-position: center;
   background-size: cover;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -13,11 +13,6 @@ export const Container = styled.header`
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: unset;
-  }
-
-  /* Children style */
-  > * {
-    background-color: #13293d;
   }
 `;
 
