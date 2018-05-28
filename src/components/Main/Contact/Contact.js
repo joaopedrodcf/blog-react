@@ -8,7 +8,7 @@ const initialState = {
   name: '',
   email: '',
   message: '',
-  touched: {
+  dirty: {
     email: false,
     name: false,
     message: false
@@ -27,7 +27,6 @@ export default class Contact extends React.Component {
     this.sendMessage = this.sendMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validate = this.validate.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
   }
 
   sendMessage(event) {
@@ -46,19 +45,11 @@ export default class Contact extends React.Component {
   handleChange(event) {
     const { value, name } = event.target;
 
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleBlur(event) {
-    const { name } = event.target;
-    this.setState({
-      touched: {
-        ...this.state.touched,
-        [name]: true
-      }
-    });
+    // https://scotch.io/tutorials/password-strength-meter-in-react , dirty based on this tut
+    this.setState(({ test = false }) => ({
+      [name]: value,
+      dirty: { ...this.state.dirty, [name]: !test || test }
+    }));
   }
 
   validate() {
@@ -80,7 +71,7 @@ export default class Contact extends React.Component {
 
     const shouldMarkError = field => {
       const hasError = errors[field];
-      const shouldShow = this.state.touched[field];
+      const shouldShow = this.state.dirty[field];
 
       return hasError ? shouldShow : false;
     };
@@ -97,7 +88,6 @@ export default class Contact extends React.Component {
               placeholder="Name"
               value={name}
               onChange={this.handleChange}
-              onBlur={this.handleBlur}
             />
           </Label>
 
@@ -113,7 +103,6 @@ export default class Contact extends React.Component {
               placeholder="Email"
               value={email}
               onChange={this.handleChange}
-              onBlur={this.handleBlur}
             />
           </Label>
 
@@ -128,7 +117,6 @@ export default class Contact extends React.Component {
               placeholder="Message"
               value={message}
               onChange={this.handleChange}
-              onBlur={this.handleBlur}
             />
           </Label>
 
