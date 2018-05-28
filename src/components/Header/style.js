@@ -10,6 +10,11 @@ export const Container = styled.header`
   grid-area: header;
   justify-content: space-between;
 
+  > nav {
+    background-color: rgba(19, 41, 61, 1);
+    position: relative;
+  }
+
   @media (max-width: 600px) {
     flex-direction: column;
     align-items: unset;

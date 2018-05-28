@@ -2,6 +2,7 @@
   "name": "blog-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://joaopedrodcf.github.io/blog-react",
   "dependencies": {
     "axios": "^0.18.0",
     "normalize.css": "^8.0.0",
@@ -17,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
@@ -31,6 +34,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
     "flow-bin": "^0.72.0",
+    "gh-pages": "^1.1.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.1",
     "prettier": "1.12.1",
