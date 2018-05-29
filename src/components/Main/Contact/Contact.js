@@ -12,6 +12,11 @@ const initialState = {
     email: false,
     name: false,
     message: false
+  },
+  error: {
+    email: false,
+    name: false,
+    message: false
   }
 };
 
@@ -50,27 +55,50 @@ export default class Contact extends React.Component {
       [name]: value,
       dirty: { ...this.state.dirty, [name]: !test || test }
     }));
+
+    this.validate(event);
   }
 
-  validate() {
-    const { name, email, message } = this.state;
+  validate(event) {
+    const { value, name } = event.target;
 
-    return {
-      name: name.length === 0,
-      email: !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email),
-      message: message.length === 0
-    };
+    if (name === 'name' || name === 'message') {
+      this.setState({
+        error: {
+          ...this.state.error,
+          [name]: value.length === 0
+        }
+      });
+    }
+
+    if (name === 'email') {
+      this.setState({
+        error: {
+          ...this.state.error,
+          [name]: !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)
+        }
+      });
+    }
   }
-
+  /*
+    validate() {
+      const { name, email, message } = this.state;
+  
+      return {
+        name: name.length === 0,
+        email: !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email),
+        message: message.length === 0
+      };
+    }
+  */
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { name, email, message } = this.state;
+    const { name, email, message, error } = this.state;
 
-    const errors = this.validate();
-    const hasErrors = Object.keys(errors).some(x => errors[x]);
+    const hasErrors = Object.keys(error).some(x => error[x]);
 
     const shouldMarkError = field => {
-      const hasError = errors[field];
+      const hasError = error[field];
       const shouldShow = this.state.dirty[field];
 
       return hasError ? shouldShow : false;
