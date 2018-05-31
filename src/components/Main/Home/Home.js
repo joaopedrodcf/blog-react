@@ -8,7 +8,8 @@ export default class Home extends React.Component {
     this.state = {
       posts: [],
       postsPerPage: 2,
-      currentPage: 1
+      currentPage: 1,
+      totalPages: 6
     };
 
     this.getPostsPagination = this.getPostsPagination.bind(this);
@@ -118,28 +119,39 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const { posts } = this.state;
+    const { posts, currentPage, totalPages } = this.state;
+
+    const buttons = [];
+
+    for (let i = 1; i < totalPages + 1; i += 1) {
+      buttons.push(
+        <button onClick={() => this.getPostsPagination(i, false, false)}>
+          {i}
+        </button>
+      );
+    }
 
     return (
       <div>
         {posts.map(post => <Post {...post} />)}
-        <button onClick={() => this.getPostsPagination(0, true, false)}>
-          {' '}
-          -{' '}
-        </button>
-        <button onClick={() => this.getPostsPagination(1, false, false)}>
-          1
-        </button>
-        <button onClick={() => this.getPostsPagination(2, false, false)}>
-          2
-        </button>
-        <button onClick={() => this.getPostsPagination(3, false, false)}>
-          3
-        </button>
-        <button onClick={() => this.getPostsPagination(0, false, true)}>
-          {' '}
-          +{' '}
-        </button>
+
+        <div>
+          Page {currentPage} of {totalPages}
+        </div>
+
+        {currentPage - 1 > 0 && (
+          <button onClick={() => this.getPostsPagination(0, true, false)}>
+            Previous
+          </button>
+        )}
+
+        {buttons}
+
+        {currentPage < totalPages && (
+          <button onClick={() => this.getPostsPagination(0, false, true)}>
+            Next
+          </button>
+        )}
       </div>
     );
   }
