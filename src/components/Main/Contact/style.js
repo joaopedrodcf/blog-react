@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
-
 export const Form = styled.form`
   background-color: rgba(27, 152, 224, 0.4);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -9,6 +7,10 @@ export const Form = styled.form`
   border-radius: 2px;
   display: flex;
   flex-direction: column;
+
+  > h1 {
+    text-align: center;
+  }
 `;
 
 export const Label = styled.label`
