@@ -9,6 +9,10 @@ const Global = styled.div`
   font-family: 'Open Sans', sans-serif;
   height: 100%;
 
+  > a {
+    outline: 0;
+  }
+
   @media (max-width: 1200px) {
     grid-template-columns: 2fr 10fr 2fr;
   }
