@@ -12,7 +12,7 @@ export const Container = styled.header`
 
   > nav {
     background-color: rgba(19, 41, 61, 1);
-    position: relative;
+    z-index: 1;
   }
 
   @media (max-width: 600px) {
