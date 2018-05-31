@@ -1,145 +1,94 @@
 import React from 'react';
-import Post from '../Post/Post';
-import { ContainerPages, PaginationButton } from './style';
+import { Container, Article, Figure } from './style';
 
-export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
+export default class PostDetailed extends React.Component {
+  // This type of constructor is useful basically is doing {match} = this.props.match
+  constructor({ match }) {
+    super();
 
     this.state = {
-      posts: [],
-      postsPerPage: 2,
-      currentPage: 1,
-      totalPages: 3
+      id: match.params.id,
+      post: []
     };
 
-    this.getPostsPagination = this.getPostsPagination.bind(this);
+    this.getPost = this.getPost.bind(this);
   }
 
   componentDidMount() {
-    this.getPostsPagination(1);
+    this.getPost();
   }
 
-  getPostsPagination(page, isMinus, isPlus) {
-    const { postsPerPage, currentPage } = this.state;
-
-    let offset;
-
-    let curPage = currentPage;
-
-    if (isMinus) {
-      curPage -= 1;
-      offset = (currentPage - 2) * postsPerPage;
-    } else if (isPlus) {
-      curPage += 1;
-      offset = currentPage * postsPerPage;
-    } else {
-      curPage = page;
-      offset = (page - 1) * postsPerPage;
-    }
+  getPost() {
+    const { id } = this.state;
 
     const posts = [
       {
         id: 1,
         title: 'This is my title',
-        description:
+        text:
           '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       },
       {
         id: 2,
         title: 'This is my title',
-        description:
+        text:
           '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       },
       {
         id: 3,
         title: 'This is my title',
-        description:
+        text:
           '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       },
       {
         id: 4,
         title: 'This is my title',
-        description:
+        text:
           '4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       },
       {
         id: 5,
         title: 'This is my title',
-        description:
+        text:
           '5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       },
       {
         id: 6,
         title: 'This is my title',
-        description:
+        text:
           '6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
         date: '24 Jan 2018'
       }
     ];
 
     this.setState({
-      currentPage: curPage,
-      posts: posts.slice(offset, offset + postsPerPage)
+      post: posts[id - 1]
     });
   }
 
+  //  return <div>I'm the post details {this.state.id}</div>;
   render() {
-    const { posts, currentPage, totalPages } = this.state;
+    const post = Object.assign({}, this.state.post);
 
-    const buttons = [];
-
-    for (let i = 1; i < totalPages + 1; i += 1) {
-      if (currentPage === i) {
-        buttons.push(
-          <PaginationButton
-            onClick={() => this.getPostsPagination(i, false, false)}
-            active
-          >
-            {i}
-          </PaginationButton>
-        );
-      } else {
-        buttons.push(
-          <PaginationButton
-            onClick={() => this.getPostsPagination(i, false, false)}
-          >
-            {i}
-          </PaginationButton>
-        );
-      }
-    }
+    const { title, date, text } = post;
 
     return (
-      <div>
-        {posts.map(post => <Post {...post} />)}
-
-        <ContainerPages>
-          Page {currentPage} of {totalPages}
-          <div>
-            {currentPage - 1 > 0 && (
-              <PaginationButton
-                onClick={() => this.getPostsPagination(0, true, false)}
-              >
-                Previous
-              </PaginationButton>
-            )}
-            {buttons}
-            {currentPage < totalPages && (
-              <PaginationButton
-                onClick={() => this.getPostsPagination(0, false, true)}
-              >
-                Next
-              </PaginationButton>
-            )}
-          </div>
-        </ContainerPages>
-      </div>
+      <Container>
+        <Article>
+          <h3>{title}</h3>
+          <h4>{date}</h4>
+          <p>{text}</p>
+        </Article>
+        <Figure
+          src="https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+          alt="about-me-img"
+        />
+      </Container>
     );
   }
 }

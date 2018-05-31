@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { Container, Article, Button, Figure } from './style';
 
-const Post = ({ title, date, description }) => (
+const Post = ({ id, title, date, description }) => (
   <Container>
     <Article>
       <h3>{title}</h3>
@@ -12,7 +14,9 @@ const Post = ({ title, date, description }) => (
       src="https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
       alt="about-me-img"
     />
-    <Button>Read more</Button>
+    <Link to={`/post/${id}`}>
+      <Button>Read more</Button>
+    </Link>
   </Container>
 );
 

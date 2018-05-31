@@ -10,9 +10,9 @@ export const Nav = styled.nav`
 
   @media (max-width: 600px) {
     flex-direction: column;
+    ${props => !props.toogle && 'display: none;'};
 
     /* Links begin closed when screen is small */
-    ${props => !props.toogle && 'display: none;'};
   }
 `;
 
