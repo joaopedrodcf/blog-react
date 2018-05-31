@@ -14,9 +14,9 @@ const initialState = {
     message: false
   },
   error: {
-    email: false,
-    name: false,
-    message: false
+    email: true,
+    name: true,
+    message: true
   }
 };
 
@@ -80,17 +80,7 @@ export default class Contact extends React.Component {
       });
     }
   }
-  /*
-    validate() {
-      const { name, email, message } = this.state;
-  
-      return {
-        name: name.length === 0,
-        email: !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email),
-        message: message.length === 0
-      };
-    }
-  */
+
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
     const { name, email, message, error } = this.state;
