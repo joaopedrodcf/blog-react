@@ -11,6 +11,14 @@ html,
 }
 
 /*
+https://css-tricks.com/snippets/css/remove-dotted-link-borders/
+Remove dotted link borders on mobile!
+*/
+a:active {
+  outline: none;
+}
+
+/*
 CSS DEBUG
 https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3
 */
