@@ -1,48 +1,35 @@
 import React from 'react';
-import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button } from './style';
 
 // Reset state https://stackoverflow.com/questions/34845650/clearing-state-es6-react
 const initialState = {
-  name: '',
   email: '',
-  message: '',
+  password: '',
   dirty: {
     email: false,
-    name: false,
-    message: false
+    password: false
   },
   error: {
     email: true,
-    name: true,
-    message: true
+    password: true,
+    global: true
   }
 };
 
-export default class Contact extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = initialState;
 
-    this.endpointEmail = '/send-email';
-    this.urlContact = process.env.REACT_APP_API_HOST + this.endpointEmail;
-
-    this.sendMessage = this.sendMessage.bind(this);
+    this.login = this.login.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validate = this.validate.bind(this);
   }
 
-  sendMessage(event) {
+  login(event) {
     event.preventDefault();
-
-    const { name, email, message } = this.state;
-    axios.post(this.urlContact, {
-      name,
-      email,
-      message
-    });
 
     this.setState(initialState);
   }
@@ -62,7 +49,7 @@ export default class Contact extends React.Component {
   validate(event) {
     const { value, name } = event.target;
 
-    if (name === 'name' || name === 'message') {
+    if (name === 'email' || name === 'password') {
       this.setState({
         error: {
           ...this.state.error,
@@ -70,20 +57,11 @@ export default class Contact extends React.Component {
         }
       });
     }
-
-    if (name === 'email') {
-      this.setState({
-        error: {
-          ...this.state.error,
-          [name]: !/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(value)
-        }
-      });
-    }
   }
 
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { name, email, message, error } = this.state;
+    const { email, password, error } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -96,22 +74,8 @@ export default class Contact extends React.Component {
 
     return (
       <div>
-        <Form noValidate onSubmit={this.sendMessage}>
+        <Form noValidate onSubmit={this.login}>
           <h1>Contact me for more info</h1>
-          <Label htmlFor="name">
-            Name:
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              value={name}
-              onChange={this.handleChange}
-            />
-          </Label>
-
-          {shouldMarkError('name') && (
-            <ErrorLabel>Your name can&apos;t be empty</ErrorLabel>
-          )}
 
           <Label htmlFor="email">
             Email:
@@ -125,21 +89,28 @@ export default class Contact extends React.Component {
           </Label>
 
           {shouldMarkError('email') && (
-            <ErrorLabel>You must use a valid email</ErrorLabel>
+            <ErrorLabel>Your email can&apos;t be empty</ErrorLabel>
           )}
 
-          <Label htmlFor="name">
-            Message:
-            <textarea
-              name="message"
-              placeholder="Message"
-              value={message}
+          <Label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={password}
               onChange={this.handleChange}
             />
           </Label>
 
-          {shouldMarkError('message') && (
-            <ErrorLabel>Your message can&apos;t be empty</ErrorLabel>
+          {shouldMarkError('password') && (
+            <ErrorLabel>Your password can&apos;t be empty</ErrorLabel>
+          )}
+
+          {shouldMarkError('global') && (
+            <ErrorLabel>
+              The email and password do not match our records
+            </ErrorLabel>
           )}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>

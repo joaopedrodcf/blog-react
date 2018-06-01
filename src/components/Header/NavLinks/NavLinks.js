@@ -9,6 +9,12 @@ const NavLinks = props => (
     <Link exact to="/contactme">
       Contact me
     </Link>
+    <Link exact to="/login">
+      Login
+    </Link>
+    <Link exact to="/register">
+      Register
+    </Link>
   </Nav>
 );
 
