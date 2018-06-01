@@ -10,10 +10,10 @@ html,
   height: 100%;
 }
 
-a{
-  outline: none;
-}
-
+/*
+https://css-tricks.com/snippets/css/remove-dotted-link-borders/
+Remove dotted link borders on mobile!
+*/
 a:active {
   outline: none;
 }
