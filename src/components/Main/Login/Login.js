@@ -75,7 +75,7 @@ export default class Login extends React.Component {
     return (
       <div>
         <Form noValidate onSubmit={this.login}>
-          <h1>Contact me for more info</h1>
+          <h1>Login</h1>
 
           <Label htmlFor="email">
             Email:
