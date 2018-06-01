@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: grid;
@@ -83,11 +84,19 @@ export const Article = styled.div`
   }
 `;
 
-export const Button = styled.button`
+export const LinkPost = styled(Link)`
   grid-area: button;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+`;
+
+export const Button = styled.button`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   border: none;
   background-color: rgba(27, 152, 224, 0.5);
+  padding: 10px 15px;
 
   &:hover {
     transform: scale(1.04);
