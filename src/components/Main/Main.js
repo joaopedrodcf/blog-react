@@ -4,7 +4,7 @@ import Container from './style';
 
 import Home from './Home/Home';
 import Contact from './Contact/Contact';
-import PostDetailed from './Post/PostDetailed';
+import PostDetailed from './PostDetailed/PostDetailed';
 
 const Main = () => (
   <Container>

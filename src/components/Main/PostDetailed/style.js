@@ -1,31 +1,24 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 150px 3fr 1fr;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-rows: 500px auto;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   padding: 10px;
-  grid-template-areas: 'figure article article' 'figure article article' 'figure . button';
+  grid-template-areas: 'figure figure figure' 'article article article';
   background-color: rgba(27, 152, 224, 0.4);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
   margin-top: 20px;
 
   @media (max-width: 900px) {
-    grid-template-rows: auto 30px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'article article article' '. . button';
+    grid-template-rows: 1fr auto;
   }
 `;
 
 export const FigureContainer = styled.div`
   grid-area: figure;
-
-  @media (max-width: 900px) {
-    display: none;
-  }
 `;
 
 export const Figure = styled.img`
@@ -33,10 +26,6 @@ export const Figure = styled.img`
   height: 100%;
   object-fit: cover;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-  @media (max-width: 900px) {
-    display: none;
-  }
 `;
 
 export const Article = styled.div`
@@ -90,37 +79,5 @@ export const Article = styled.div`
     > p {
       font-size: 0.8em;
     }
-  }
-`;
-
-export const LinkPost = styled(Link)`
-  grid-area: button;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-`;
-
-export const Button = styled.button`
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  border: none;
-  background-color: rgba(27, 152, 224, 0.5);
-  padding: 10px 15px;
-
-  &:hover {
-    transform: scale(1.04);
-    background-color: rgba(27, 152, 224, 0.9);
-  }
-
-  @media (max-width: 1800px) {
-    font-size: 0.9em;
-  }
-
-  @media (max-width: 1200px) {
-    font-size: 0.8em;
-  }
-
-  @media (max-width: 900px) {
-    font-size: 0.7em;
   }
 `;
