@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-rows: 150px 3fr 1fr;
+  grid-template-rows: 175px 3fr 1fr;
   grid-template-columns: 2fr 2fr 1fr;
   grid-gap: 10px;
   padding: 10px;
