@@ -24,17 +24,17 @@ export default class Login extends React.Component {
 
     this.state = initialState;
 
-    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validate = this.validate.bind(this);
   }
 
-  login(event) {
+  register(event) {
     event.preventDefault();
 
     const { email, password } = this.state;
     axios
-      .post('http://localhost:8000/api/login', {
+      .post('http://localhost:8000/api/register', {
         email,
         password
       })
@@ -88,8 +88,8 @@ export default class Login extends React.Component {
 
     return (
       <div>
-        <Form noValidate onSubmit={this.login}>
-          <h1>Login</h1>
+        <Form noValidate onSubmit={this.register}>
+          <h1>Register</h1>
 
           <Label htmlFor="email">
             Email:
