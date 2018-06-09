@@ -126,7 +126,7 @@ export default class Login extends React.Component {
             <ErrorLabel>Your password can&apos;t be empty</ErrorLabel>
           )}
 
-          {loginSuccess === 201 && (
+          {loginSuccess === 200 && (
             <Alert error={false}>Account created with success</Alert>
           )}
 
