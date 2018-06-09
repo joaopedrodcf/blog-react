@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, Alert } from './style';
 
 // Reset state https://stackoverflow.com/questions/34845650/clearing-state-es6-react
 const initialState = {
@@ -13,9 +13,9 @@ const initialState = {
   },
   error: {
     email: true,
-    password: true,
-    global: false
-  }
+    password: true
+  },
+  loginSuccess: ''
 };
 
 export default class Login extends React.Component {
@@ -40,9 +40,14 @@ export default class Login extends React.Component {
       })
       .then(response => {
         console.log(response);
+
+        if (response.status === 200) {
+          this.setState(...initialState, { loginSuccess: 200 });
+        }
       })
       .catch(error => {
         console.log(error);
+        this.setState(...initialState, { loginSuccess: 400 });
       });
 
     this.setState(initialState);
@@ -75,7 +80,7 @@ export default class Login extends React.Component {
 
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { email, password, error } = this.state;
+    const { email, password, error, loginSuccess } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -121,10 +126,12 @@ export default class Login extends React.Component {
             <ErrorLabel>Your password can&apos;t be empty</ErrorLabel>
           )}
 
-          {shouldMarkError('global') && (
-            <ErrorLabel>
-              The email and password do not match our records
-            </ErrorLabel>
+          {loginSuccess === 201 && (
+            <Alert error={false}>Account created with success</Alert>
+          )}
+
+          {loginSuccess === 400 && (
+            <Alert error>Your email is already registered</Alert>
           )}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>

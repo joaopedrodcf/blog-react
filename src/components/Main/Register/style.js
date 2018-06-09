@@ -36,6 +36,15 @@ export const ErrorLabel = styled.span`
   margin-bottom: 10px;
 `;
 
+export const Alert = styled.div`
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 2px;
+  text-align: center;
+  ${props => !props.error && 'background-color: blue;'};
+  ${props => props.error && 'background-color: red;'};
+`;
+
 export const Button = styled.button`
   grid-area: button;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

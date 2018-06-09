@@ -58,3 +58,12 @@ export const Button = styled.button`
     background-color: rgba(27, 152, 224, 0.9);
   }
 `;
+
+export const Alert = styled.div`
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 2px;
+  text-align: center;
+  ${props => !props.error && 'background-color: blue;'};
+  ${props => props.error && 'background-color: red;'};
+`;
