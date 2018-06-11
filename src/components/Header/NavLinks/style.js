@@ -10,6 +10,7 @@ export const Nav = styled.nav`
 
   @media (max-width: 600px) {
     flex-direction: column;
+    padding: 20px;
     ${props => !props.toogle && 'display: none;'};
 
     /* Links begin closed when screen is small */
@@ -31,5 +32,17 @@ export const Link = styled(NavLink).attrs({
 
   &.active {
     border-bottom: 4px solid #fff;
+  }
+`;
+
+export const Button = styled.button`
+  margin: 0 10px;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 2px;
+  background-color: white;
+
+  &:hover {
+    background-color: grey;
   }
 `;

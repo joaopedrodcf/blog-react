@@ -35,17 +35,11 @@ class Routes extends Component {
         password
       })
       .then(response => {
-        console.log('response');
-        console.log(response);
         localStorage.setItem('token', response.data.token);
-        this.setState({ isAuthenticated: true });
+        this.setState({ isAuthenticated: !this.state.isAuthenticated });
         return true;
       })
-      .catch(error => {
-        console.log('error');
-        console.log(error);
-        return false;
-      });
+      .catch(() => false);
   }
 
   register(email, password) {
@@ -55,17 +49,11 @@ class Routes extends Component {
         password
       })
       .then(response => {
-        console.log('response');
-        console.log(response);
         localStorage.setItem('token', response.data.token);
-        this.setState({ isAuthenticated: true });
+        this.setState({ isAuthenticated: !this.state.isAuthenticated });
         return true;
       })
-      .catch(error => {
-        console.log('error');
-        console.log(error);
-        return false;
-      });
+      .catch(() => false);
   }
 
   render() {

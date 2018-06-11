@@ -8,6 +8,10 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      toogle: false
+    };
+
     this.handleClick = this.handleClick.bind(this);
   }
 

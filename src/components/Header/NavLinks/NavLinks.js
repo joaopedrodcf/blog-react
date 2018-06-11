@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Link } from './style';
+import { Nav, Link, Button } from './style';
 
 const NavLinks = props => (
   <Nav {...props}>
@@ -22,7 +22,7 @@ const NavLinks = props => (
       </Link>
     )}
 
-    {props.isAuthenticated && <button onClick={props.logout}>Logout</button>}
+    {props.isAuthenticated && <Button onClick={props.logout}>Logout</Button>}
   </Nav>
 );
 
