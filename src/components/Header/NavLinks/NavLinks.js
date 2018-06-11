@@ -9,12 +9,20 @@ const NavLinks = props => (
     <Link exact to="/contactme">
       Contact me
     </Link>
-    <Link exact to="/login">
-      Login
-    </Link>
-    <Link exact to="/register">
-      Register
-    </Link>
+
+    {props.isAuthenticated === false && (
+      <Link exact to="/login">
+        Login
+      </Link>
+    )}
+
+    {props.isAuthenticated === false && (
+      <Link exact to="/register">
+        Register
+      </Link>
+    )}
+
+    {props.isAuthenticated && <button onClick={props.logout}>Logout</button>}
   </Nav>
 );
 

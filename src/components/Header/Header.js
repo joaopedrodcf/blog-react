@@ -8,9 +8,6 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      toogle: false
-    };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -20,13 +17,14 @@ class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Container>
         <ContainerLogoIcon>
           <Logo />
           <Button handleClick={this.handleClick} />
         </ContainerLogoIcon>
-        <NavLinks {...this.state} />
+        <NavLinks {...this.props} {...this.state} />
       </Container>
     );
   }

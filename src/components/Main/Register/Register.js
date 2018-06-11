@@ -15,7 +15,7 @@ const initialState = {
     email: true,
     password: true
   },
-  registerSuccess: ''
+  success: ''
 };
 
 export default class Login extends React.Component {
@@ -40,16 +40,18 @@ export default class Login extends React.Component {
         password
       })
       .then(response => {
+        console.log('response');
         console.log(response);
-
-        if (response.status === 201) {
-          this.setState(...initialState, { registerSuccess: 201 });
-        }
+        this.setState(...initialState, { success: true });
+        localStorage.setItem('token', response.token);
       })
       .catch(error => {
+        console.log('error');
         console.log(error);
-        this.setState(...initialState, { registerSuccess: 400 });
+        this.setState(...initialState, { success: false });
       });
+
+    // this.setState(initialState);
   }
 
   handleChange(event) {
@@ -79,7 +81,7 @@ export default class Login extends React.Component {
 
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { email, password, error, registerSuccess } = this.state;
+    const { email, password, error, success } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -126,11 +128,9 @@ export default class Login extends React.Component {
             <ErrorLabel>Your password can&apos;t be empty</ErrorLabel>
           )}
 
-          {registerSuccess === 201 && (
-            <Alert error={false}>Account created with success</Alert>
-          )}
+          {success && <Alert error={false}>Account created with success</Alert>}
 
-          {registerSuccess === 400 && (
+          {success === false && (
             <Alert error>Your email is already registered</Alert>
           )}
 
