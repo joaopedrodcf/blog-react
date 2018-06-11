@@ -8,13 +8,14 @@ import PostDetailed from './PostDetailed/PostDetailed';
 import Login from './Login/Login';
 import Register from './Register/Register';
 
-const Main = () => (
+// Use render instead of component to pass props
+const Main = props => (
   <Container>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/contactme" component={Contact} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/register" component={Register} />
+      <Route exact path="/login" render={() => <Login {...props} />} />
+      <Route exact path="/register" render={() => <Register {...props} />} />
       <Route exact path="/post/:id" component={PostDetailed} />
     </Switch>
   </Container>

@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button, Alert } from './style';
 
@@ -15,7 +14,7 @@ const initialState = {
     email: true,
     password: true
   },
-  success: ''
+  result: ''
 };
 
 export default class Login extends React.Component {
@@ -33,28 +32,11 @@ export default class Login extends React.Component {
     event.preventDefault();
 
     const { email, password } = this.state;
-    axios
-      .post('http://localhost:8000/api/login', {
-        email,
-        password
-      })
-      .then(response => {
-        console.log(response);
 
-        if (response.status === 200) {
-          console.log('response');
-          console.log(response);
-          this.setState(...initialState, { success: true });
-          localStorage.setItem('token', response.token);
-        }
-      })
-      .catch(error => {
-        console.log('error');
-        console.log(error);
-        this.setState(...initialState, { success: false });
-      });
-
-    // this.setState(initialState);
+    // promises
+    this.props.login(email, password).then(result => {
+      this.setState(...initialState, { result });
+    });
   }
 
   handleChange(event) {
@@ -84,7 +66,7 @@ export default class Login extends React.Component {
 
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { email, password, error, success } = this.state;
+    const { email, password, error, result } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -130,11 +112,9 @@ export default class Login extends React.Component {
             <ErrorLabel>Your password can&apos;t be empty</ErrorLabel>
           )}
 
-          {success && <Alert error={false}>Account created with success</Alert>}
+          {result && <Alert error={false}>You have succefuly loggedin</Alert>}
 
-          {success === false && (
-            <Alert error>Your email is already registered</Alert>
-          )}
+          {result === false && <Alert error>Your credentials dont match</Alert>}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>
             Send message
