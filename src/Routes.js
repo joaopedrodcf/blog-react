@@ -30,7 +30,7 @@ class Routes extends Component {
 
     localStorage.removeItem('token');
 
-    this.setState({ isAuthenticated: !this.state.isAuthenticated });
+    this.setState({ isAuthenticated: false });
   }
 
   // returning the promise
@@ -42,7 +42,7 @@ class Routes extends Component {
       })
       .then(response => {
         localStorage.setItem('token', response.data.token);
-        this.setState({ isAuthenticated: !this.state.isAuthenticated });
+        this.setState({ isAuthenticated: true });
         return true;
       })
       .catch(() => false);
@@ -56,7 +56,7 @@ class Routes extends Component {
       })
       .then(response => {
         localStorage.setItem('token', response.data.token);
-        this.setState({ isAuthenticated: !this.state.isAuthenticated });
+        this.setState({ isAuthenticated: true });
         return true;
       })
       .catch(() => false);

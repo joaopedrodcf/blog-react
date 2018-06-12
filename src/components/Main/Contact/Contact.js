@@ -38,6 +38,7 @@ export default class Contact extends React.Component {
     event.preventDefault();
 
     const { name, email, message } = this.state;
+
     axios.post(this.urlContact, {
       name,
       email,
