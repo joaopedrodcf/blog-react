@@ -4,6 +4,8 @@ Blog created with React and styled-components
 
 # Website(TODO)
 
+https://joaopedrodcf.github.io/blog-react
+
 ## Getting Started
 
 First just
