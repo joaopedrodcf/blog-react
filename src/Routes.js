@@ -17,6 +17,12 @@ class Routes extends Component {
     this.logout = this.logout.bind(this);
     this.login = this.login.bind(this);
     this.register = this.register.bind(this);
+
+    this.endpointLogin = '/api/login';
+    this.urlLogin = process.env.REACT_APP_API_HOST + this.endpointLogin;
+
+    this.endpointRegister = '/api/register';
+    this.urlRegister = process.env.REACT_APP_API_HOST + this.endpointRegister;
   }
 
   logout(event) {
@@ -30,7 +36,7 @@ class Routes extends Component {
   // returning the promise
   login(email, password) {
     return axios
-      .post('http://localhost:8000/api/login', {
+      .post(this.urlLogin, {
         email,
         password
       })
@@ -44,7 +50,7 @@ class Routes extends Component {
 
   register(email, password) {
     return axios
-      .post('http://localhost:8000/api/register', {
+      .post(this.urlRegister, {
         email,
         password
       })
