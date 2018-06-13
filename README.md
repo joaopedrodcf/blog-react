@@ -2,9 +2,22 @@
 
 Blog created with React and styled-components
 
-# Website(TODO)
+# Website
 
 https://joaopedrodcf.github.io/blog-react
+
+## Functionalities working
+
+Contact me: is sending emails
+Register: creating user with password encrypted with bcrypt
+Login: JWT request the token is saved in local storage
+Posts: Its working with pagination, showing all the posts separated by pages
+
+## NEXT Functionalities
+
+Protected routes with react router: PrivateRoute only if authenticated
+Users when loggedin can create posts
+
 
 ## Getting Started
 
