@@ -29,6 +29,7 @@ class Routes extends Component {
     event.preventDefault();
 
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
 
     this.setState({ isAuthenticated: false });
   }
@@ -42,6 +43,7 @@ class Routes extends Component {
       })
       .then(response => {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('email', email);
         this.setState({ isAuthenticated: true });
         return true;
       })
@@ -56,6 +58,7 @@ class Routes extends Component {
       })
       .then(response => {
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('email', email);
         this.setState({ isAuthenticated: true });
         return true;
       })

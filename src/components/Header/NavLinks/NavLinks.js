@@ -21,8 +21,11 @@ const NavLinks = props => (
         Register
       </Link>
     )}
-
-    {props.isAuthenticated && <Button onClick={props.logout}>Logout</Button>}
+    {props.isAuthenticated && (
+      <Button onClick={props.logout}>
+        Logout: {localStorage.getItem('email')}{' '}
+      </Button>
+    )}
   </Nav>
 );
 
