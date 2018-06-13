@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import Post from '../Post/Post';
 import { ContainerPages, PaginationButton } from './style';
 
@@ -8,12 +10,14 @@ export default class Home extends React.Component {
 
     this.state = {
       posts: [],
-      postsPerPage: 2,
       currentPage: 1,
       totalPages: 3
     };
 
     this.getPostsPagination = this.getPostsPagination.bind(this);
+
+    this.endpoint = '/api/posts/';
+    this.url = process.env.REACT_APP_API_HOST + this.endpoint;
   }
 
   componentDidMount() {
@@ -21,84 +25,28 @@ export default class Home extends React.Component {
   }
 
   getPostsPagination(page, isMinus, isPlus) {
-    const { postsPerPage, currentPage } = this.state;
+    const { currentPage } = this.state;
 
-    let offset;
-
-    let curPage = currentPage;
+    let curPage = page;
 
     if (isMinus) {
-      curPage -= 1;
-      offset = (currentPage - 2) * postsPerPage;
+      curPage = currentPage - 1;
     } else if (isPlus) {
-      curPage += 1;
-      offset = currentPage * postsPerPage;
-    } else {
-      curPage = page;
-      offset = (page - 1) * postsPerPage;
+      curPage = currentPage + 1;
     }
+    console.log(this.url + curPage);
+    axios
+      .get(this.url + curPage)
+      .then(response => {
+        console.log(response);
 
-    const posts = [
-      {
-        id: 1,
-        title: 'This is my title',
-        description:
-          '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      },
-      {
-        id: 2,
-        title: 'This is my title',
-        description:
-          '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1516186049182-b29897c525d1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=efb3103964aaa561432d3d718ab94e50&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      },
-      {
-        id: 3,
-        title: 'This is my title',
-        description:
-          '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      },
-      {
-        id: 4,
-        title: 'This is my title',
-        description:
-          '4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      },
-      {
-        id: 5,
-        title: 'This is my title',
-        description:
-          '5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      },
-      {
-        id: 6,
-        title: 'This is my title',
-        description:
-          '6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula vitae ligula sit amet maximus. Nunc auctor neque ipsum, ac porttitor elit lobortis ac. Vivamus ultrices sodales tellus et aliquam. Pellentesque porta sit amet nulla vitae luctus.Praesent quis risus id dolor venenatis condimentum.',
-        image:
-          'https://images.unsplash.com/photo-1525184648845-66cbe3b6c59c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1616770f130dedbdc3407e3aea3d6215&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb',
-        date: '24 Jan 2018'
-      }
-    ];
-
-    this.setState({
-      currentPage: curPage,
-      posts: posts.slice(offset, offset + postsPerPage)
-    });
+        this.setState({
+          currentPage: curPage,
+          posts: response.data.posts,
+          totalPages: response.data.pages
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
