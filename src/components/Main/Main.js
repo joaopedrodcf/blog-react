@@ -23,7 +23,7 @@ const Main = props => (
         path="/login"
         render={() => <Login {...props} />}
       />
-      <Route
+      <ProtectedRoute
         {...props}
         exact
         path="/register"
