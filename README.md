@@ -12,10 +12,11 @@ Contact me: is sending emails
 Register: creating user with password encrypted with bcrypt
 Login: JWT request the token is saved in local storage
 Posts: Its working with pagination, showing all the posts separated by pages
+Protected routes: if user is authenticated can access /login or /register
 
 ## NEXT Functionalities
 
-Protected routes with react router: PrivateRoute only if authenticated
+
 Users when loggedin can create posts
 
 

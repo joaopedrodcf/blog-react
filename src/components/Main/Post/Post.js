@@ -9,7 +9,7 @@ import {
   FigureContainer
 } from './style';
 
-const Post = ({ id, title, date, description, image }) => (
+const Post = ({ _id, title, date, description, image }) => (
   <Container>
     <Article>
       <h3>{title}</h3>
@@ -20,7 +20,7 @@ const Post = ({ id, title, date, description, image }) => (
       <Figure src={image} alt="about-me-img" />
     </FigureContainer>
 
-    <LinkPost to={`/post/${id}`}>
+    <LinkPost to={`/post/${_id}`}>
       <Button>Read more</Button>
     </LinkPost>
   </Container>

@@ -34,19 +34,14 @@ export default class Home extends React.Component {
     } else if (isPlus) {
       curPage = currentPage + 1;
     }
-    console.log(this.url + curPage);
-    axios
-      .get(this.url + curPage)
-      .then(response => {
-        console.log(response);
 
-        this.setState({
-          currentPage: curPage,
-          posts: response.data.posts,
-          totalPages: response.data.pages
-        });
-      })
-      .catch(error => console.log(error));
+    axios.get(this.url + curPage).then(response => {
+      this.setState({
+        currentPage: curPage,
+        posts: response.data.posts,
+        totalPages: response.data.pages
+      });
+    });
   }
 
   render() {

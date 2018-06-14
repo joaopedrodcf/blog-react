@@ -11,7 +11,7 @@ class Routes extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: !!localStorage.getItem('token') // Bollean evaluation
+      isAuthenticated: !!localStorage.getItem('token') // Boolean evaluation
     };
 
     this.logout = this.logout.bind(this);

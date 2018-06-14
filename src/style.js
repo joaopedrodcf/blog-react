@@ -16,5 +16,9 @@ const Global = styled.div`
   @media (max-width: 600px) {
     grid-template-columns: 0.1fr 12fr 0.1fr;
   }
+
+  a {
+    outline: 0;
+  }
 `;
 export default Global;

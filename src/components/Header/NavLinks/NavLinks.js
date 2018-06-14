@@ -21,6 +21,13 @@ const NavLinks = props => (
         Register
       </Link>
     )}
+
+    {props.isAuthenticated && (
+      <Link exact to="/create-post">
+        Create post
+      </Link>
+    )}
+
     {props.isAuthenticated && (
       <Button onClick={props.logout}>
         Logout: {localStorage.getItem('email')}{' '}

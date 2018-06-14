@@ -7,9 +7,13 @@ import Contact from './Contact/Contact';
 import PostDetailed from './PostDetailed/PostDetailed';
 import Login from './Login/Login';
 import Register from './Register/Register';
+import CreatePost from './CreatePost/CreatePost';
 
-const ProtectedRoute = ({ isAuthenticated, ...props }) =>
+const RouteUnauthenticated = ({ isAuthenticated, ...props }) =>
   !isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+
+const RouteAuthenticated = ({ isAuthenticated, ...props }) =>
+  isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 // Use render instead of component to pass props
 const Main = props => (
@@ -17,17 +21,23 @@ const Main = props => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/contactme" component={Contact} />
-      <ProtectedRoute
+      <RouteUnauthenticated
         {...props}
         exact
         path="/login"
         render={() => <Login {...props} />}
       />
-      <ProtectedRoute
+      <RouteUnauthenticated
         {...props}
         exact
         path="/register"
         render={() => <Register {...props} />}
+      />
+      <RouteAuthenticated
+        {...props}
+        exact
+        path="/create-post"
+        render={() => <CreatePost {...props} />}
       />
       <Route exact path="/post/:id" component={PostDetailed} />
     </Switch>
