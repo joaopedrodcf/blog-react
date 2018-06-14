@@ -11,7 +11,7 @@ class Routes extends Component {
     super(props);
 
     this.state = {
-      isAuthenticated: !!localStorage.getItem('token')
+      isAuthenticated: !!localStorage.getItem('token') // Bollean evaluation
     };
 
     this.logout = this.logout.bind(this);
@@ -31,7 +31,7 @@ class Routes extends Component {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
 
-    this.setState({ isAuthenticated: false });
+    this.setState({ isAuthenticated: !!localStorage.getItem('token') });
   }
 
   // returning the promise
@@ -44,7 +44,7 @@ class Routes extends Component {
       .then(response => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('email', email);
-        this.setState({ isAuthenticated: true });
+        this.setState({ isAuthenticated: !!localStorage.getItem('token') });
         return true;
       })
       .catch(() => false);
@@ -59,7 +59,7 @@ class Routes extends Component {
       .then(response => {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('email', email);
-        this.setState({ isAuthenticated: true });
+        this.setState({ isAuthenticated: !!localStorage.getItem('token') });
         return true;
       })
       .catch(() => false);
@@ -69,7 +69,7 @@ class Routes extends Component {
     return (
       <Global>
         <Header logout={this.logout} {...this.state} />
-        <Main login={this.login} register={this.register} />
+        <Main login={this.login} register={this.register} {...this.state} />
         <Footer />
       </Global>
     );
