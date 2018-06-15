@@ -46,12 +46,10 @@ export default class Contact extends React.Component {
         email,
         message
       })
-      .then(response => {
-        console.log(response);
+      .then(() => {
         this.setState(...initialState, { result: true });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         this.setState(...initialState, { result: false });
       });
   }
