@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, Alert } from './style';
 
 // Reset state https://stackoverflow.com/questions/34845650/clearing-state-es6-react
 const initialState = {
@@ -17,7 +17,8 @@ const initialState = {
     email: true,
     name: true,
     message: true
-  }
+  },
+  result: ''
 };
 
 export default class Contact extends React.Component {
@@ -84,7 +85,7 @@ export default class Contact extends React.Component {
 
   // solution for validation https://goshakkk.name/instant-form-fields-validation-react/
   render() {
-    const { name, email, message, error } = this.state;
+    const { name, email, message, error, result } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -141,6 +142,12 @@ export default class Contact extends React.Component {
 
           {shouldMarkError('message') && (
             <ErrorLabel>Your message can&apos;t be empty</ErrorLabel>
+          )}
+
+          {result && <Alert error={false}>Account created with success</Alert>}
+
+          {result === false && (
+            <Alert error>Your email is already registered</Alert>
           )}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>

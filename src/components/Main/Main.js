@@ -3,11 +3,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Container from './style';
 
 import Home from './Home/Home';
-import Contact from './Contact/Contact';
 import PostDetailed from './PostDetailed/PostDetailed';
-import Login from './Login/Login';
-import Register from './Register/Register';
-import CreatePost from './CreatePost/CreatePost';
+import Contact from './Forms/Contact';
+import Login from './Forms/Login';
+import Register from './Forms/Register';
+import CreatePost from './Forms/CreatePost';
 
 const RouteUnauthenticated = ({ isAuthenticated, ...props }) =>
   !isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;

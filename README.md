@@ -13,11 +13,15 @@ Register: creating user with password encrypted with bcrypt
 Login: JWT request the token is saved in local storage
 Posts: Its working with pagination, showing all the posts separated by pages
 Protected routes: if user is authenticated can access /login or /register
+Create posts: Users loggedin can create posts
 
 ## NEXT Functionalities
 
+Create post use image upload and save it on firebase!?
+Users can create comments
+When a user creates a post it shows on the post who created the post
+Like button, a user can like a post only one time per user
 
-Users when loggedin can create posts
 
 
 ## Getting Started

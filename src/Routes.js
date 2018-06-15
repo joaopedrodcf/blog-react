@@ -17,6 +17,7 @@ class Routes extends Component {
     this.logout = this.logout.bind(this);
     this.login = this.login.bind(this);
     this.register = this.register.bind(this);
+    this.authenticate = this.authenticate.bind(this);
 
     this.endpointLogin = '/api/login';
     this.urlLogin = process.env.REACT_APP_API_HOST + this.endpointLogin;
@@ -36,23 +37,16 @@ class Routes extends Component {
 
   // returning the promise
   login(email, password) {
-    return axios
-      .post(this.urlLogin, {
-        email,
-        password
-      })
-      .then(response => {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('email', email);
-        this.setState({ isAuthenticated: !!localStorage.getItem('token') });
-        return true;
-      })
-      .catch(() => false);
+    return this.authenticate(this.urlLogin, email, password);
   }
 
   register(email, password) {
+    return this.authenticate(this.urlRegister, email, password);
+  }
+
+  authenticate(url, email, password) {
     return axios
-      .post(this.urlRegister, {
+      .post(url, {
         email,
         password
       })
