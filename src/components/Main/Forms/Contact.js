@@ -27,8 +27,8 @@ export default class Contact extends React.Component {
 
     this.state = initialState;
 
-    this.endpointEmail = '/send-email';
-    this.urlContact = process.env.REACT_APP_API_HOST + this.endpointEmail;
+    this.endpoint = '/send-email';
+    this.url = process.env.REACT_APP_API_HOST + this.endpoint;
 
     this.sendMessage = this.sendMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -40,13 +40,20 @@ export default class Contact extends React.Component {
 
     const { name, email, message } = this.state;
 
-    axios.post(this.urlContact, {
-      name,
-      email,
-      message
-    });
-
-    this.setState(initialState);
+    axios
+      .post(this.url, {
+        name,
+        email,
+        message
+      })
+      .then(response => {
+        console.log(response);
+        this.setState(...initialState, { result: true });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState(...initialState, { result: false });
+      });
   }
 
   handleChange(event) {
@@ -144,10 +151,10 @@ export default class Contact extends React.Component {
             <ErrorLabel>Your message can&apos;t be empty</ErrorLabel>
           )}
 
-          {result && <Alert error={false}>Account created with success</Alert>}
+          {result && <Alert error={false}>Thanks for contacting me</Alert>}
 
           {result === false && (
-            <Alert error>Your email is already registered</Alert>
+            <Alert error>There was an error contacting me</Alert>
           )}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>
