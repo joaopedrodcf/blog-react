@@ -42,23 +42,35 @@ export default class CreatePost extends React.Component {
 
     const { title, description, text, image } = this.state;
 
-    axios.post(this.url, {
-      title,
-      description,
-      text,
-      image
+    const formData = new FormData();
+
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('text', text);
+    formData.append('image', image);
+
+    console.log(formData);
+    axios.post(this.url, formData).then(result => {
+      console.log(result);
     });
 
     this.setState(initialState);
   }
 
+  // https://blog.stvmlbrn.com/2017/12/17/upload-files-using-react-to-node-express-server.html
   handleChange(event) {
     const { value, name } = event.target;
 
-    this.setState(({ test = false }) => ({
-      [name]: value,
-      dirty: { ...this.state.dirty, [name]: !test || test }
-    }));
+    switch (name) {
+      case 'image':
+        this.setState({ image: event.target.files[0] });
+        break;
+      default:
+        this.setState(({ test = false }) => ({
+          [name]: value,
+          dirty: { ...this.state.dirty, [name]: !test || test }
+        }));
+    }
 
     this.validate(event);
   }
@@ -75,7 +87,7 @@ export default class CreatePost extends React.Component {
   }
 
   render() {
-    const { title, description, text, image, error } = this.state;
+    const { title, description, text, error } = this.state;
 
     const hasErrors = Object.keys(error).some(x => error[x]);
 
@@ -86,11 +98,25 @@ export default class CreatePost extends React.Component {
       return hasError ? shouldShow : false;
     };
 
+    /**
+      <Label htmlFor="image">
+            Image:
+            <input
+              type="text"
+              name="image"
+              placeholder="image"
+              value={image}
+              onChange={this.handleChange}
+            />
+          </Label>
+          {shouldMarkError('image') && (
+            <ErrorLabel>Your image can&apos;t be empty</ErrorLabel>
+          )}
+     */
     return (
       <div>
         <Form noValidate onSubmit={this.sendMessage}>
           <h1>Create your post</h1>
-
           <Label htmlFor="title">
             Title:
             <input
@@ -101,11 +127,9 @@ export default class CreatePost extends React.Component {
               onChange={this.handleChange}
             />
           </Label>
-
           {shouldMarkError('title') && (
             <ErrorLabel>Your title can&apos;t be empty</ErrorLabel>
           )}
-
           <Label htmlFor="description">
             Description:
             <textarea
@@ -115,11 +139,9 @@ export default class CreatePost extends React.Component {
               onChange={this.handleChange}
             />
           </Label>
-
           {shouldMarkError('description') && (
             <ErrorLabel>Your description can&apos;t be empty</ErrorLabel>
           )}
-
           <Label htmlFor="text">
             Text:
             <textarea
@@ -129,25 +151,11 @@ export default class CreatePost extends React.Component {
               onChange={this.handleChange}
             />
           </Label>
-
           {shouldMarkError('text') && (
             <ErrorLabel>Your text can&apos;t be empty</ErrorLabel>
           )}
 
-          <Label htmlFor="image">
-            Image:
-            <input
-              type="text"
-              name="image"
-              placeholder="image"
-              value={image}
-              onChange={this.handleChange}
-            />
-          </Label>
-
-          {shouldMarkError('image') && (
-            <ErrorLabel>Your image can&apos;t be empty</ErrorLabel>
-          )}
+          <input type="file" name="image" onChange={this.handleChange} />
 
           <Button type="submit" value="Submit" disabled={hasErrors}>
             Send message
