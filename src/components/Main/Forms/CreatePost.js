@@ -35,6 +35,7 @@ export default class CreatePost extends React.Component {
     this.sendMessage = this.sendMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.validate = this.validate.bind(this);
+    this.removeImage = this.removeImage.bind(this);
   }
 
   sendMessage(event) {
@@ -63,7 +64,10 @@ export default class CreatePost extends React.Component {
 
     switch (name) {
       case 'image':
-        this.setState({ image: event.target.files[0] });
+        this.setState({
+          image: event.target.files[0],
+          dirty: { ...this.state.dirty, image: true }
+        });
         break;
       default:
         this.setState(({ test = false }) => ({
@@ -72,19 +76,38 @@ export default class CreatePost extends React.Component {
         }));
     }
 
+    console.log(this.state);
     this.validate(event);
   }
 
   validate(event) {
     const { value, name } = event.target;
 
-    this.setState({
-      error: {
-        ...this.state.error,
-        [name]: value.length === 0
-      }
-    });
+    switch (name) {
+      case 'image':
+        this.setState({
+          error: {
+            ...this.state.error,
+            image: event.target.files[0] === 0
+          }
+        });
+        break;
+      default:
+        this.setState({
+          error: {
+            ...this.state.error,
+            [name]: value.length === 0
+          }
+        });
+    }
+
+    console.log(this.state);
   }
+
+  // https://stackoverflow.com/questions/47468101/upload-files-in-react-js
+  removeImage = () => {
+    document.querySelector('input[type=file]').value = '';
+  };
 
   render() {
     const { title, description, text, error } = this.state;
@@ -98,21 +121,6 @@ export default class CreatePost extends React.Component {
       return hasError ? shouldShow : false;
     };
 
-    /**
-      <Label htmlFor="image">
-            Image:
-            <input
-              type="text"
-              name="image"
-              placeholder="image"
-              value={image}
-              onChange={this.handleChange}
-            />
-          </Label>
-          {shouldMarkError('image') && (
-            <ErrorLabel>Your image can&apos;t be empty</ErrorLabel>
-          )}
-     */
     return (
       <div>
         <Form noValidate onSubmit={this.sendMessage}>
@@ -156,6 +164,14 @@ export default class CreatePost extends React.Component {
           )}
 
           <input type="file" name="image" onChange={this.handleChange} />
+
+          {shouldMarkError('image') && (
+            <ErrorLabel>Your image can&apos;t be empty</ErrorLabel>
+          )}
+
+          {this.state.image && (
+            <button onClick={this.removeImage}>Remove image</button>
+          )}
 
           <Button type="submit" value="Submit" disabled={hasErrors}>
             Send message
