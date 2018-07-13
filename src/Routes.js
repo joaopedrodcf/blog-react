@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import Global from './style';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 
@@ -62,7 +62,7 @@ class Routes extends Component {
   render() {
     return (
       <Global>
-        <Header logout={this.logout} {...this.state} />
+        <HeaderContainer logout={this.logout} {...this.state} />
         <Main login={this.login} register={this.register} {...this.state} />
         <Footer />
       </Global>
