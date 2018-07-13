@@ -14,10 +14,10 @@ Login: JWT request the token is saved in local storage
 Posts: Its working with pagination, showing all the posts separated by pages
 Protected routes: if user is authenticated can access /login or /register
 Create posts: Users loggedin can create posts
+Create posts: Image upload through cloudinary
 
 ## NEXT Functionalities
 
-Create post use image upload and save it on firebase!?
 Users can create comments
 When a user creates a post it shows on the post who created the post
 Like button, a user can like a post only one time per user
@@ -35,13 +35,13 @@ git clone https://github.com/joaopedrodcf/blog-react.git
 Then
 
 ```
-npm install
+yarn install
 ```
 
 Finally
 
 ```
-npm start
+yarn start
 ```
 
 Now its ready to use
@@ -61,11 +61,11 @@ After pushing your changes to the repository
 You just have to run this commands
 
 ```
-npm run build
+yarn run build
 ```
 
 ```
-npm run deploy
+yarn run deploy
 ```
 
 And after some minutes the site will be live with your changes
