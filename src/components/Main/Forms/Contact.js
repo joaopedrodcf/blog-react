@@ -27,7 +27,7 @@ export default class Contact extends React.Component {
 
     this.state = initialState;
 
-    this.endpoint = '/send-email';
+    this.endpoint = '/api/send-email';
     this.url = process.env.REACT_APP_API_HOST + this.endpoint;
 
     this.sendMessage = this.sendMessage.bind(this);
