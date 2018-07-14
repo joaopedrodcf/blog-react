@@ -82,6 +82,11 @@ And after some minutes the site will be live with your changes
 * [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
 * [normalize.css](https://github.com/necolas/normalize.css) - A modern alternative to CSS resets
 * [styled-components](https://github.com/styled-components/styled-components) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅
+* [formik](https://github.com/jaredpalmer/formik) - Build forms in React, without the tears 😭
+
+## Future to implement
+* [redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
+* [react-redux](https://github.com/reduxjs/react-redux) - Official React bindings for Redux
 
 ## my project setup
 

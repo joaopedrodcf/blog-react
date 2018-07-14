@@ -5,6 +5,7 @@
   "homepage": "https://joaopedrodcf.github.io/blog-react",
   "dependencies": {
     "axios": "^0.18.0",
+    "formik": "^1.0.1",
     "normalize.css": "^8.0.0",
     "radium": "^0.24.0",
     "react": "^16.3.2",

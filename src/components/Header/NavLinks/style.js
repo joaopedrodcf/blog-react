@@ -39,7 +39,7 @@ export const Link = styled(NavLink).attrs({
 `;
 
 export const Button = styled.button`
-  margin: 0 10px;
+  margin: 10px 10px;
   border: none;
   padding: 15px 32px;
   border-radius: 2px;
