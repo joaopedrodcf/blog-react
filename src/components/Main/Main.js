@@ -4,7 +4,7 @@ import Container from './style';
 
 import Home from './Home/Home';
 import PostDetailed from './PostDetailed/PostDetailed';
-import Contact from './Forms/Contact';
+import ContactFormik from './Forms/ContactFormik';
 import Login from './Forms/Login';
 import Register from './Forms/Register';
 import CreatePost from './Forms/CreatePost';
@@ -20,7 +20,7 @@ const Main = props => (
   <Container>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/contactme" component={Contact} />
+      <Route exact path="/contactme" component={ContactFormik} />
       <RouteUnauthenticated
         {...props}
         exact
