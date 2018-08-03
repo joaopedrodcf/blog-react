@@ -1,35 +1,34 @@
 import React from 'react';
 import { Nav, Link, Button } from './style';
 
-const NavLinks = props => (
-  <Nav {...props}>
+const NavLinks = ({ toogle, props: { state, logoutRedux } }) => (
+  <Nav toogle={toogle}>
     <Link exact to="/">
       Home
     </Link>
     <Link exact to="/contactme">
       Contact me
     </Link>
-
-    {props.isAuthenticated === false && (
+    {state.reduxIsAuthenticated === false && (
       <Link exact to="/login">
         Login
       </Link>
     )}
 
-    {props.isAuthenticated === false && (
+    {state.reduxIsAuthenticated === false && (
       <Link exact to="/register">
         Register
       </Link>
     )}
 
-    {props.isAuthenticated && (
+    {state.reduxIsAuthenticated && (
       <Link exact to="/create-post">
         Create post
       </Link>
     )}
 
-    {props.isAuthenticated && (
-      <Button onClick={props.logout}>
+    {state.reduxIsAuthenticated && (
+      <Button onClick={logoutRedux}>
         Logout: {localStorage.getItem('email')}{' '}
       </Button>
     )}

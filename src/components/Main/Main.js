@@ -5,15 +5,15 @@ import Container from './style';
 import Home from './Home/Home';
 import PostDetailed from './PostDetailed/PostDetailed';
 import ContactFormik from './Forms/ContactFormik';
-import Login from './Forms/Login';
-import Register from './Forms/Register';
-import CreatePost from './Forms/CreatePost';
+import RegisterFormik from './Forms/RegisterFormik';
+import CreatePostFormik from './Forms/CreatePostFormik';
+import LoginFormik from './Forms/LoginFormik';
 
-const RouteUnauthenticated = ({ isAuthenticated, ...props }) =>
-  !isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteUnauthenticated = ({ state, ...props }) =>
+  !state.reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
-const RouteAuthenticated = ({ isAuthenticated, ...props }) =>
-  isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteAuthenticated = ({ state, ...props }) =>
+  state.reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 // Use render instead of component to pass props
 const Main = props => (
@@ -25,19 +25,19 @@ const Main = props => (
         {...props}
         exact
         path="/login"
-        render={() => <Login {...props} />}
+        render={() => <LoginFormik {...props} />}
       />
       <RouteUnauthenticated
         {...props}
         exact
         path="/register"
-        render={() => <Register {...props} />}
+        render={() => <RegisterFormik {...props} />}
       />
       <RouteAuthenticated
         {...props}
         exact
         path="/create-post"
-        render={() => <CreatePost {...props} />}
+        render={() => <CreatePostFormik {...props} />}
       />
       <Route exact path="/post/:id" component={PostDetailed} />
     </Switch>
