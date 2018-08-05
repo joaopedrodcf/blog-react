@@ -1,35 +1,14 @@
-import React from 'react';
-
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Header from './Header';
-import { Container } from './style';
+import { logout } from '../../actions';
 
-class HeaderContainer extends React.Component {
-  constructor(props) {
-    super(props);
+const mapStateToProps = (state, ownProps) => ({ state, ownProps });
 
-    this.state = {
-      toogle: false
-    };
-
-    this.handleClick = this.handleClick.bind(this);
+const mapDispatchToProps = dispatch => ({
+  logoutRedux: () => {
+    dispatch(logout());
   }
+});
 
-  handleClick(event) {
-    event.preventDefault();
-    this.setState({ toogle: !this.state.toogle });
-  }
-
-  render() {
-    return (
-      <Container>
-        <Header
-          {...this.props}
-          {...this.state}
-          handleClick={this.handleClick}
-        />
-      </Container>
-    );
-  }
-}
-
-export default HeaderContainer;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

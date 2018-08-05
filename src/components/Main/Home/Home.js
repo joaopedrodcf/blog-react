@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import axios from 'axios';
 
@@ -53,6 +54,7 @@ export default class Home extends React.Component {
       if (currentPage === i) {
         buttons.push(
           <PaginationButton
+            key={i}
             onClick={() => this.getPostsPagination(i, false, false)}
             active
           >
@@ -62,6 +64,7 @@ export default class Home extends React.Component {
       } else {
         buttons.push(
           <PaginationButton
+            key={i}
             onClick={() => this.getPostsPagination(i, false, false)}
           >
             {i}
@@ -72,7 +75,8 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        {posts.map(post => <Post {...post} />)}
+        {console.log(posts)}
+        {posts.map(post => <Post key={post._id} {...post} />)}
 
         <ContainerPages>
           Page {currentPage} of {totalPages}

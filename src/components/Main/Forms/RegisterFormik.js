@@ -1,28 +1,11 @@
 import React from 'react';
 import { Formik } from 'formik';
-import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button } from './style';
 
-function sendMessage(values, { resetForm }) {
-  const { name, email, message } = values;
-
-  const endpoint = '/api/send-email';
-  const url = process.env.REACT_APP_API_HOST + endpoint;
-
-  axios
-    .post(url, {
-      name,
-      email,
-      message
-    })
-    .then(result => {
-      console.log(result);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
+function register(values, ownProps, { resetForm }) {
+  const { email, password } = values;
+  ownProps.register(email, password);
   resetForm();
 }
 
@@ -35,18 +18,14 @@ function validate(values) {
     errors.email = 'Invalid email address';
   }
 
-  if (!values.message) {
-    errors.message = 'Required';
-  }
-
-  if (!values.name) {
-    errors.name = 'Required';
+  if (!values.password) {
+    errors.password = 'Required';
   }
 
   return errors;
 }
 
-const ContactFormik = () => (
+const ContactFormik = ownProps => (
   <div>
     <Formik
       initialValues={{
@@ -55,7 +34,7 @@ const ContactFormik = () => (
         message: ''
       }}
       validate={values => validate(values)}
-      onSubmit={(values, ...rest) => sendMessage(values, ...rest)}
+      onSubmit={(values, ...rest) => register(values, ownProps, ...rest)}
       render={({
         values,
         errors,
@@ -67,23 +46,10 @@ const ContactFormik = () => (
         dirty
       }) => (
         <Form onSubmit={handleSubmit}>
-          <h1>Contact me for more info</h1>
-          <Label htmlFor="name">
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.name}
-            />
-          </Label>
-          <ErrorLabel>
-            {' '}
-            {touched.name && errors.name && <div>{errors.name}</div>}
-          </ErrorLabel>
+          <h1>Register</h1>
 
           <Label htmlFor="email">
+            Email:
             <input
               type="email"
               name="email"
@@ -98,19 +64,24 @@ const ContactFormik = () => (
             {touched.email && errors.email && <div>{errors.email}</div>}
           </ErrorLabel>
 
-          <Label htmlFor="message">
-            <textarea
-              name="message"
-              placeholder="Message"
+          <Label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
               onChange={handleChange}
               onBlur={handleBlur}
-              value={values.message}
+              value={values.password}
             />
           </Label>
+
           <ErrorLabel>
             {' '}
-            {touched.message && errors.message && <div>{errors.message}</div>}
+            {touched.password &&
+              errors.password && <div>{errors.password}</div>}
           </ErrorLabel>
+
           <Button
             type="submit"
             disabled={
