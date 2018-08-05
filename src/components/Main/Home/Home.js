@@ -75,7 +75,6 @@ export default class Home extends React.Component {
 
     return (
       <div>
-        {console.log(posts)}
         {posts.map(post => <Post key={post._id} {...post} />)}
 
         <ContainerPages>
