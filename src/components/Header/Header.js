@@ -18,7 +18,7 @@ class Header extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    console.log(this.state.toogle);
+
     this.setState({ toogle: !this.state.toogle });
   }
 
@@ -31,7 +31,7 @@ class Header extends React.Component {
           </Link>
           <Button handleClick={this.handleClick} />
         </ContainerLogoIcon>
-        <NavLinks toogle={this.state.toogle} props={this.props} />
+        <NavLinks toogle={this.state.toogle} {...this.props} />
       </Container>
     );
   }

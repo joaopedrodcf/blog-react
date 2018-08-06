@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Link, Button } from './style';
 
-const NavLinks = ({ toogle, props: { state, logoutRedux } }) => (
+const NavLinks = ({ toogle, reduxIsAuthenticated, email, logoutRedux }) => (
   <Nav toogle={toogle}>
     <Link exact to="/">
       Home
@@ -9,28 +9,26 @@ const NavLinks = ({ toogle, props: { state, logoutRedux } }) => (
     <Link exact to="/contactme">
       Contact me
     </Link>
-    {state.reduxIsAuthenticated === false && (
+    {reduxIsAuthenticated === false && (
       <Link exact to="/login">
         Login
       </Link>
     )}
 
-    {state.reduxIsAuthenticated === false && (
+    {reduxIsAuthenticated === false && (
       <Link exact to="/register">
         Register
       </Link>
     )}
 
-    {state.reduxIsAuthenticated && (
+    {reduxIsAuthenticated && (
       <Link exact to="/create-post">
         Create post
       </Link>
     )}
 
-    {state.reduxIsAuthenticated && (
-      <Button onClick={logoutRedux}>
-        Logout: {localStorage.getItem('email')}{' '}
-      </Button>
+    {reduxIsAuthenticated && (
+      <Button onClick={logoutRedux}>Logout: {email} </Button>
     )}
   </Nav>
 );

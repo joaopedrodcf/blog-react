@@ -3,7 +3,11 @@ import { withRouter } from 'react-router-dom';
 import Header from './Header';
 import { logout } from '../../actions';
 
-const mapStateToProps = (state, ownProps) => ({ state, ownProps });
+const mapStateToProps = ({ reduxIsAuthenticated, email }, ownProps) => ({
+  reduxIsAuthenticated,
+  email,
+  ownProps
+});
 
 const mapDispatchToProps = dispatch => ({
   logoutRedux: () => {

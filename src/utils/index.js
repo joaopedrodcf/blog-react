@@ -5,22 +5,33 @@ const endpointRegister = '/api/register';
 const urlLogin = process.env.REACT_APP_API_HOST + endpointLogin;
 const urlRegister = process.env.REACT_APP_API_HOST + endpointRegister;
 
-export const authenticate = (url, email, password) =>
+export const loginAsync = async (email, password) => {
   axios
-    .post(url, {
+    .post(urlLogin, {
       email,
       password
     })
     .then(response => {
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('email', email);
-    })
-    .catch(() => false);
-
-export const loginAxios = (email, password) => {
-  authenticate(urlLogin, email, password);
+      return Promise.resolve(response);
+    });
 };
 
-export const registerAxios = (email, password) => {
-  authenticate(urlRegister, email, password);
+export const registerAsync = async (email, password) => {
+  axios
+    .post(urlRegister, {
+      email,
+      password
+    })
+    .then(response => {
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('email', email);
+      return Promise.resolve(response);
+    });
+};
+
+export const logoutAsync = async () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('email');
 };
