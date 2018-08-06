@@ -9,11 +9,11 @@ import RegisterFormik from './Forms/RegisterFormik';
 import CreatePostFormik from './Forms/CreatePostFormik';
 import LoginFormik from './Forms/LoginFormik';
 
-const RouteUnauthenticated = ({ state, ...props }) =>
-  !state.reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteUnauthenticated = ({ reduxIsAuthenticated, ...props }) =>
+  !reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
-const RouteAuthenticated = ({ state, ...props }) =>
-  state.reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteAuthenticated = ({ reduxIsAuthenticated, ...props }) =>
+  reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 // Use render instead of component to pass props
 const Main = props => (
@@ -21,6 +21,7 @@ const Main = props => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/contactme" component={ContactFormik} />
+      {console.log(props)}
       <RouteUnauthenticated
         {...props}
         exact

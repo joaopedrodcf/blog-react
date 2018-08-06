@@ -3,9 +3,9 @@ import { Formik } from 'formik';
 
 import { Label, ErrorLabel, Form, Button } from './style';
 
-function register(values, ownProps, { resetForm }) {
+function handleLogin(values, login, { resetForm }) {
   const { email, password } = values;
-  ownProps.login(email, password);
+  login(email, password);
   resetForm();
 }
 
@@ -25,16 +25,15 @@ function validate(values) {
   return errors;
 }
 
-const ContactFormik = ownProps => (
+const LoginFormik = ({ login }) => (
   <div>
     <Formik
       initialValues={{
-        name: '',
         email: '',
-        message: ''
+        password: ''
       }}
       validate={values => validate(values)}
-      onSubmit={(values, ...rest) => register(values, ownProps, ...rest)}
+      onSubmit={(values, ...rest) => handleLogin(values, login, ...rest)}
       render={({
         values,
         errors,
@@ -96,4 +95,4 @@ const ContactFormik = ownProps => (
   </div>
 );
 
-export default ContactFormik;
+export default LoginFormik;
