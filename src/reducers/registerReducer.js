@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionsTypes';
 
 const registerReducer = (state = [], action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.REGISTER_START:
       return {

@@ -11,8 +11,8 @@ import Routes from './Routes';
 import reducers from './reducers';
 
 const initialState = {
-  reduxIsAuthenticated: false,
-  email: ''
+  reduxIsAuthenticated: !!localStorage.getItem('token'),
+  email: localStorage.getItem('email')
 };
 
 /* eslint-disable no-underscore-dangle */

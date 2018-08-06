@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionsTypes';
 
 const logoutReducer = (state = [], action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.LOGOUT_START:
       return {

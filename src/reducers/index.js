@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionsTypes';
 
 const authentication = (state = [], action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.LOGIN_START:
       return {

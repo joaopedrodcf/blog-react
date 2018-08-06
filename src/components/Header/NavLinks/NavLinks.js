@@ -9,7 +9,6 @@ const NavLinks = ({ toogle, reduxIsAuthenticated, email, logoutRedux }) => (
     <Link exact to="/contactme">
       Contact me
     </Link>
-    {console.log(reduxIsAuthenticated)}
     {reduxIsAuthenticated === false && (
       <Link exact to="/login">
         Login

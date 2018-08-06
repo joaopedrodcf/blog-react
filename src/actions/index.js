@@ -1,6 +1,6 @@
 import actionTypes from './actionsTypes';
 
-import { loginAxios, registerAxios } from '../utils/';
+import { loginAsync, registerAsync, logoutAsync } from '../utils/';
 
 /*
  * action creators
@@ -68,16 +68,12 @@ export function logoutStart() {
 
 export function login(email, password) {
   return dispatch => {
-    console.log('login action creators async');
     dispatch(loginStart());
-
-    loginAxios(email, password)
-      .then(response => {
-        console.log(response);
+    loginAsync(email, password)
+      .then(() => {
         dispatch(loginSuccess(email));
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         dispatch(loginError());
       });
   };
@@ -87,7 +83,7 @@ export function register(email, password) {
   return dispatch => {
     dispatch(registerStart());
 
-    registerAxios(email, password)
+    registerAsync(email, password)
       .then(() => dispatch(registerSuccess(email)))
       .catch(() => dispatch(registerError()));
   };
@@ -95,7 +91,9 @@ export function register(email, password) {
 
 export function logout() {
   return dispatch => {
-    dispatch(logoutStart())
+    dispatch(logoutStart());
+
+    logoutAsync()
       .then(() => dispatch(logoutSuccess()))
       .catch(() => dispatch(logoutError()));
   };

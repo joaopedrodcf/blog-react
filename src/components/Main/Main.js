@@ -21,7 +21,6 @@ const Main = props => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/contactme" component={ContactFormik} />
-      {console.log(props)}
       <RouteUnauthenticated
         {...props}
         exact

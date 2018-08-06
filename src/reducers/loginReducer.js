@@ -1,7 +1,6 @@
 import actionTypes from '../actions/actionsTypes';
 
 const loginReducer = (state = [], action) => {
-  console.log(action);
   switch (action.type) {
     case actionTypes.LOGIN_START:
       return {
