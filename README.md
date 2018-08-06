@@ -18,11 +18,9 @@ Create posts: Image upload through cloudinary
 
 ## NEXT Functionalities
 
-Users can create comments
-When a user creates a post it shows on the post who created the post
-Like button, a user can like a post only one time per user
-
-
+- Users can create comments
+- When a user creates a post it shows on the post who created the post
+- Like button, a user can like a post only one time per user
 
 ## Getting Started
 
@@ -72,21 +70,25 @@ And after some minutes the site will be live with your changes
 
 ## Built With
 
-* [npm](https://github.com/npm/npm) - Package manager for javascript
-* [yarn](https://github.com/yarnpkg/yarn/) - 📦🐈 Fast, reliable, and secure dependency management.
+* [axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
+* [formik](https://github.com/jaredpalmer/formik) - Build forms in React, without the tears 😭
+* [normalize.css](https://github.com/necolas/normalize.css) - A modern alternative to CSS resets
 * [react](https://github.com/facebook/react) - A declarative, efficient, and flexible JavaScript library for building user interfaces
 * [react-router](https://github.com/ReactTraining/react-router) - Declarative routing for React
+* [redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
+* [redux-thunk](https://github.com/reduxjs/redux-thunk) - Thunk middleware for Redux
+* [redux-logger](https://github.com/evgenyrodionov/redux-logger) - Logger for Redux
+* [styled-components](https://github.com/styled-components/styled-components) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅
+
+
+## Misc
+
+* [npm](https://github.com/npm/npm) - Package manager for javascript
+* [yarn](https://github.com/yarnpkg/yarn/) - 📦🐈 Fast, reliable, and secure dependency management.
+* [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
 * [google-fonts](https://github.com/google/fonts) - Font files available from Google Fonts
 * [1001freefonts](https://www.1001freefonts.com/edo.font) - 1001 free fonts
 * [coolors](https://coolors.co/) - The super fast color schemes generator!
-* [node](https://github.com/nodejs/node) - Node.js JavaScript runtime ✨🐢🚀✨
-* [normalize.css](https://github.com/necolas/normalize.css) - A modern alternative to CSS resets
-* [styled-components](https://github.com/styled-components/styled-components) - Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅
-* [formik](https://github.com/jaredpalmer/formik) - Build forms in React, without the tears 😭
-
-## Future to implement
-* [redux](https://github.com/reduxjs/redux) - Predictable state container for JavaScript apps
-* [react-redux](https://github.com/reduxjs/react-redux) - Official React bindings for Redux
 
 ## my project setup
 
