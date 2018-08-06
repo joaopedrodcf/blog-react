@@ -8,13 +8,13 @@ https://joaopedrodcf.github.io/blog-react
 
 ## Functionalities working
 
-Contact me: is sending emails
-Register: creating user with password encrypted with bcrypt
-Login: JWT request the token is saved in local storage
-Posts: Its working with pagination, showing all the posts separated by pages
-Protected routes: if user is authenticated can access /login or /register
-Create posts: Users loggedin can create posts
-Create posts: Image upload through cloudinary
+- Contact me: is sending emails
+- Register: creating user with password encrypted with bcrypt
+- Login: JWT request the token is saved in local storage
+- Posts: Its working with pagination, showing all the posts separated by pages
+- Protected routes: if user is authenticated can access /login or /register
+- Create posts: Users loggedin can create posts
+- Create posts: Image upload through cloudinary
 
 ## NEXT Functionalities
 
