@@ -9,11 +9,13 @@ import {
   FigureContainer
 } from './style';
 
+const formatDate = date => new Date(date).toDateString();
+
 const Post = ({ _id, title, date, description, image }) => (
   <Container>
     <Article>
       <h3>{title}</h3>
-      <h4>{date}</h4>
+      <h4>{formatDate(date)}</h4>
       <p>{description}</p>
     </Article>
     <FigureContainer>
