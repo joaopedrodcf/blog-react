@@ -10,38 +10,38 @@ import CreatePostFormik from './Forms/CreatePostFormik';
 import LoginFormik from './Forms/LoginFormik';
 
 const RouteUnauthenticated = ({ reduxIsAuthenticated, ...props }) =>
-  !reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+    !reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 const RouteAuthenticated = ({ reduxIsAuthenticated, ...props }) =>
-  reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+    reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 // Use render instead of component to pass props
 const Main = props => (
-  <Container>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/contactme" component={ContactFormik} />
-      <RouteUnauthenticated
-        {...props}
-        exact
-        path="/login"
-        render={() => <LoginFormik {...props} />}
-      />
-      <RouteUnauthenticated
-        {...props}
-        exact
-        path="/register"
-        render={() => <RegisterFormik {...props} />}
-      />
-      <RouteAuthenticated
-        {...props}
-        exact
-        path="/create-post"
-        render={() => <CreatePostFormik {...props} />}
-      />
-      <Route exact path="/post/:id" component={PostDetailed} />
-    </Switch>
-  </Container>
+    <Container>
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/contactme" component={ContactFormik} />
+            <RouteUnauthenticated
+                {...props}
+                exact
+                path="/login"
+                render={() => <LoginFormik {...props} />}
+            />
+            <RouteUnauthenticated
+                {...props}
+                exact
+                path="/register"
+                render={() => <RegisterFormik {...props} />}
+            />
+            <RouteAuthenticated
+                {...props}
+                exact
+                path="/create-post"
+                render={() => <CreatePostFormik {...props} />}
+            />
+            <Route exact path="/post/:id" component={PostDetailed} />
+        </Switch>
+    </Container>
 );
 
 export default Main;

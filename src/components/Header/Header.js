@@ -6,35 +6,35 @@ import Logo from './Logo/Logo';
 import Button from './Button/Button';
 
 class Header extends React.Component {
-  constructor({ props }) {
-    super(props);
+    constructor({ props }) {
+        super(props);
 
-    this.state = {
-      toogle: false
-    };
+        this.state = {
+            toogle: false
+        };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
+        this.handleClick = this.handleClick.bind(this);
+    }
 
-  handleClick(event) {
-    event.preventDefault();
+    handleClick(event) {
+        event.preventDefault();
 
-    this.setState({ toogle: !this.state.toogle });
-  }
+        this.setState({ toogle: !this.state.toogle });
+    }
 
-  render() {
-    return (
-      <Container>
-        <ContainerLogoIcon>
-          <Link to="/">
-            <Logo />
-          </Link>
-          <Button handleClick={this.handleClick} />
-        </ContainerLogoIcon>
-        <NavLinks toogle={this.state.toogle} {...this.props} />
-      </Container>
-    );
-  }
+    render() {
+        return (
+            <Container>
+                <ContainerLogoIcon>
+                    <Link to="/">
+                        <Logo />
+                    </Link>
+                    <Button handleClick={this.handleClick} />
+                </ContainerLogoIcon>
+                <NavLinks toogle={this.state.toogle} {...this.props} />
+            </Container>
+        );
+    }
 }
 
 export default Header;

@@ -2,50 +2,50 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Nav = styled.nav`
-  padding: 0;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 
-  @media (max-width: 600px) {
-    flex-direction: column;
-    padding: 20px;
-    height: auto;
-    ${props => !props.toogle && 'display: none;'};
+    @media (max-width: 600px) {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+        ${props => !props.toogle && 'display: none;'};
 
-    /* Links begin closed when screen is small */
-  }
+        /* Links begin closed when screen is small */
+    }
 `;
 
 export const Link = styled(NavLink).attrs({
-  activeClassName: 'active'
+    activeClassName: 'active'
 })`
-  margin: auto 10px;
-  padding: 19px 0;
-  text-decoration: none;
-  color: white;
-  border-bottom: 4px solid transparent;
-  height: 100%;
+    margin: auto 10px;
+    padding: 19px 0;
+    text-decoration: none;
+    color: white;
+    border-bottom: 4px solid transparent;
+    height: 100%;
 
-  &:hover {
-    border-bottom: 4px solid #fff;
-  }
+    &:hover {
+        border-bottom: 4px solid #fff;
+    }
 
-  &.active {
-    border-bottom: 4px solid #fff;
-  }
+    &.active {
+        border-bottom: 4px solid #fff;
+    }
 `;
 
 export const Button = styled.button`
-  margin: 10px 10px;
-  border: none;
-  padding: 15px 32px;
-  border-radius: 2px;
-  background-color: white;
+    margin: 10px 10px;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 2px;
+    background-color: white;
 
-  &:hover {
-    background-color: grey;
-  }
+    &:hover {
+        background-color: grey;
+    }
 `;

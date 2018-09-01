@@ -5,11 +5,11 @@ import MainContainer from './components/Main/MainContainer';
 import Footer from './components/Footer/Footer';
 
 const Routes = () => (
-  <Global>
-    <HeaderContainer />
-    <MainContainer />
-    <Footer />
-  </Global>
+    <Global>
+        <HeaderContainer />
+        <MainContainer />
+        <Footer />
+    </Global>
 );
 
 export default Routes;
