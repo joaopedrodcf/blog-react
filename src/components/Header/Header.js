@@ -6,7 +6,7 @@ import Logo from './Logo/Logo';
 import Button from './Button/Button';
 
 class Header extends React.Component {
-    constructor({ props }) {
+    constructor(props) {
         super(props);
 
         this.state = {

@@ -75,7 +75,9 @@ export default class Home extends React.Component {
 
         return (
             <div>
-                {posts.map(post => <Post key={post._id} {...post} />)}
+                {posts.map(post => (
+                    <Post key={post._id} {...post} />
+                ))}
 
                 <ContainerPages>
                     Page {currentPage} of {totalPages}

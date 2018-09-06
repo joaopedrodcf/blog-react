@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Container from './style';
+import PropTypes from 'prop-types';
 
+import Container from './style';
 import Home from './Home/Home';
 import PostDetailed from './PostDetailed/PostDetailed';
 import ContactFormik from './Forms/ContactFormik';
@@ -14,6 +15,14 @@ const RouteUnauthenticated = ({ reduxIsAuthenticated, ...props }) =>
 
 const RouteAuthenticated = ({ reduxIsAuthenticated, ...props }) =>
     reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+
+RouteUnauthenticated.propTypes = {
+    reduxIsAuthenticated: PropTypes.bool.isRequired
+};
+
+RouteAuthenticated.propTypes = {
+    reduxIsAuthenticated: PropTypes.bool.isRequired
+};
 
 // Use render instead of component to pass props
 const Main = props => (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
+import PropTypes from 'prop-types';
 
 import { Label, ErrorLabel, Form, Button } from './style';
 
@@ -101,5 +102,9 @@ const RegisterFormik = ({ register }) => (
         />
     </div>
 );
+
+RegisterFormik.propTypes = {
+    register: PropTypes.func.isRequired
+};
 
 export default RegisterFormik;

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Container from './style';
 
 const Button = ({ handleClick }) => (
@@ -7,4 +9,7 @@ const Button = ({ handleClick }) => (
     </Container>
 );
 
+Button.propTypes = {
+    handleClick: PropTypes.func.isRequired
+};
 export default Button;

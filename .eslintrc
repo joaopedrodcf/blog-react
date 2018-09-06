@@ -1,50 +1,5 @@
 {
-    "parser": "babel-eslint",
     "extends": [
-        "airbnb",
-        "prettier",
-        "prettier/react"
-    ],
-    "plugins": [
-        "react",
-        "jsx-a11y",
-        "import",
-        "prettier"
-    ],
-    "rules": {
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
-            }
-        ],
-        "react/forbid-prop-types": [
-            0,
-            {
-                "forbid": []
-            }
-        ],
-        "react/prop-types": 0,
-        "jsx-a11y/anchor-is-valid": [
-            "error",
-            {
-                "components": [
-                    "Link"
-                ],
-                "specialLink": [
-                    "to"
-                ]
-            }
-        ],
-        "prettier/prettier": [
-            "error"
-        ]
-    },
-    "env": {
-        "browser": true,
-        "es6": true
-    }
+        "joaopedrodcf"
+    ]
 }

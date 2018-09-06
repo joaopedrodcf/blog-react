@@ -1,4 +1,5 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 
 import {
     Container,
@@ -27,5 +28,13 @@ const Post = ({ _id, title, date, description, image }) => (
         </LinkPost>
     </Container>
 );
+
+Post.propTypes = {
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+};
 
 export default Post;

@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import { Container, Article, Figure, FigureContainer } from './style';
 
-export default class PostDetailed extends React.Component {
+class PostDetailed extends React.Component {
     // This type of constructor is useful basically is doing {match} = this.props.match
     constructor(props) {
         super(props);
@@ -52,3 +53,11 @@ export default class PostDetailed extends React.Component {
         );
     }
 }
+
+PostDetailed.propTypes = {
+    match: PropTypes.shape({
+        params: PropTypes.shape({ id: PropTypes.number.isRequired })
+    }).isRequired
+};
+
+export default PostDetailed;
