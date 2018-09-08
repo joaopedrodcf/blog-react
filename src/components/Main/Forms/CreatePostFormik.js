@@ -4,19 +4,32 @@ import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button } from './style';
 
-function sendMessage(values, { resetForm }) {
+function createPost(values, { resetForm }) {
     const { title, description, text, image } = values;
-    const formData = new FormData();
+
     const endpoint = '/api/post';
     const url = process.env.REACT_APP_API_HOST + endpoint;
 
+    const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
     formData.append('text', text);
     formData.append('image', image);
 
+    // const headers = new Headers();
+    const token = localStorage.getItem('token');
+
+    const headers = {
+        'x-access-token': token,
+        'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
+    const config = {
+        headers
+    };
+
     axios
-        .post(url, formData)
+        .post(url, formData, config)
         .then(result => {
             console.log(result);
         })
@@ -60,7 +73,7 @@ const CreatePostFormik = () => (
                 image: ''
             }}
             validate={values => validate(values)}
-            onSubmit={(values, ...rest) => sendMessage(values, ...rest)}
+            onSubmit={(values, ...rest) => createPost(values, ...rest)}
             render={({
                 values,
                 errors,
