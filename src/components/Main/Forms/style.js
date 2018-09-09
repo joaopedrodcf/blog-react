@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-    background-color: rgba(27, 152, 224, 0.4);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: ${props => props.theme.colorPrimaryDark};
+    box-shadow: 0 2px 4px ${props => props.theme.colorGrayDark};
     padding: 30px;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
+    color: ${props => props.theme.colorWhite};
 
     > h1 {
         text-align: center;
@@ -17,14 +18,13 @@ export const Label = styled.label`
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: 1.1em;
-    color: rgba(33, 37, 41, 1);
+    color: ${props => props.theme.colorWhite};
 
     > input,
     textarea {
         border: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
         padding: 10px;
         border-radius: 2px;
     }
@@ -32,30 +32,29 @@ export const Label = styled.label`
 
 export const ErrorLabel = styled.span`
     font-size: 0.8em;
-    color: rgba(240, 55, 77, 0.75);
+    color: ${props => props.theme.colorRed};
     margin-bottom: 10px;
 `;
 
 export const Button = styled.button`
     grid-area: button;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     border: none;
-    background-color: rgba(27, 152, 224, 0.5);
+    background-color: ${props => props.theme.colorPrimary};
     padding: 15px;
     margin: 10px 0;
     border-radius: 2px;
 
     &:disabled,
     &[disabled]:hover {
-        border: 1px solid #999;
-        background-color: #ccc;
+        background-color: ${props => props.theme.colorGrayDark};
         transform: scale(1);
-        color: #666;
+        color: ${props => props.theme.colorGrayLight};
     }
 
     &:hover {
-        transform: scale(1.04);
-        background-color: rgba(27, 152, 224, 0.9);
+        transform: scale(1.01);
+        background-color: ${props => props.theme.colorPrimaryLight};
     }
 `;
 

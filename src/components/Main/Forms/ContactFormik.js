@@ -69,8 +69,9 @@ const ContactFormik = () => (
                 dirty
             }) => (
                 <Form onSubmit={handleSubmit}>
-                    <h1>Contact me for more info</h1>
+                    <h1>Contact me</h1>
                     <Label htmlFor="name">
+                        Name:
                         <input
                             type="text"
                             name="name"
@@ -87,6 +88,7 @@ const ContactFormik = () => (
                     </ErrorLabel>
 
                     <Label htmlFor="email">
+                        Email:
                         <input
                             type="email"
                             name="email"
@@ -103,6 +105,7 @@ const ContactFormik = () => (
                     </ErrorLabel>
 
                     <Label htmlFor="message">
+                        Message:
                         <textarea
                             name="message"
                             placeholder="Message"

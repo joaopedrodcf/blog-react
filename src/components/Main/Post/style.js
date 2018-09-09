@@ -8,8 +8,8 @@ export const Container = styled.div`
     grid-gap: 10px;
     padding: 10px;
     grid-template-areas: 'figure article article' 'figure article article' 'figure . button';
-    background-color: rgba(27, 152, 224, 0.4);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: ${props => props.theme.colorPrimaryDark};
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     margin-bottom: 20px;
     margin-top: 20px;
 
@@ -32,7 +32,7 @@ export const Figure = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
 
     @media (max-width: 900px) {
         display: none;
@@ -48,19 +48,19 @@ export const Article = styled.div`
 
     > h3 {
         margin-bottom: 4px;
-        color: rgba(33, 37, 41, 1);
+        color: ${props => props.theme.colorPrimary};
         font-size: 1.5em;
     }
 
     > h4 {
         margin-bottom: 5%;
-        color: rgba(33, 37, 41, 0.7);
+        color: ${props => props.theme.colorPrimaryLight};
         font-size: 1.3em;
     }
 
     > p {
         text-align: justify;
-        color: rgba(33, 37, 41, 1);
+        color: ${props => props.theme.colorWhite};
         font-size: 1.1em;
     }
 
@@ -102,14 +102,14 @@ export const LinkPost = styled(Link)`
 `;
 
 export const Button = styled.button`
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     border: none;
-    background-color: rgba(27, 152, 224, 0.5);
+    background-color: ${props => props.theme.colorPrimary};
     padding: 10px 15px;
 
     &:hover {
-        transform: scale(1.04);
-        background-color: rgba(27, 152, 224, 0.9);
+        transform: scale(1.01);
+        background-color: ${props => props.theme.colorPrimaryLight};
     }
 
     @media (max-width: 1800px) {
