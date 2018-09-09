@@ -10,18 +10,11 @@ function sendMessage(values, { resetForm }) {
     const endpoint = '/api/send-email';
     const url = process.env.REACT_APP_API_HOST + endpoint;
 
-    axios
-        .post(url, {
-            name,
-            email,
-            message
-        })
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => {
-            console.log(error);
-        });
+    axios.post(url, {
+        name,
+        email,
+        message
+    });
 
     resetForm();
 }

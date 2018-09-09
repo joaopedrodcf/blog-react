@@ -44,8 +44,8 @@ class PostDetailed extends React.Component {
         return (
             <Container>
                 <Article>
-                    <h3>{title}</h3>
-                    <h4>{formatDate(date)}</h4>
+                    <h1>{title}</h1>
+                    <h2>{formatDate(date)}</h2>
                     <p>{text}</p>
                 </Article>
                 <FigureContainer>

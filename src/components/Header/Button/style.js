@@ -4,6 +4,7 @@ const Container = styled.button`
     background: none;
     border: none;
     display: none;
+    font-size: 3.2rem;
 
     @media (max-width: 600px) {
         display: unset;

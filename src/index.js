@@ -16,14 +16,41 @@ injectGlobal`
     html,
     #root {
         height: 100%;
+        font-size: 62.5%;
     }
 
     * {
         box-sizing: border-box;
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4 {
+        font-size: 1.6rem;
+    }
+
+    h5 {
+        font-size: 1.4rem;
+    }
+
+    p {
+        font-size: 1.8rem;
     }
 
     a,
     a:active, {
+        font-size: 1.8rem;
         outline: none;
     }
 

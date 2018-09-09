@@ -17,23 +17,26 @@ export const Form = styled.form`
 export const Label = styled.label`
     display: flex;
     flex-direction: column;
-    margin: 10px 0;
-    font-size: 1.1em;
+    margin: 1rem 0;
     color: ${props => props.theme.colorWhite};
+    font-size: 1.8rem;
 
     > input,
     textarea {
         border: none;
         box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
-        padding: 10px;
+        padding: 1rem;
         border-radius: 2px;
     }
 `;
 
 export const ErrorLabel = styled.span`
-    font-size: 0.8em;
     color: ${props => props.theme.colorRed};
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+
+    > div {
+        font-size: 1.4rem;
+    }
 `;
 
 export const Button = styled.button`

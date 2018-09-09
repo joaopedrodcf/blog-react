@@ -22,6 +22,11 @@ https://joaopedrodcf.github.io/blog-react
 - When a user creates a post it shows on the post who created the post
 - Like button, a user can like a post only one time per user
 
+## Asked functionalities
+- favicon e o app name
+- hash password in front end before request
+- Validate passwords like one uppercase, one lowercase, one number, etc
+
 ## Getting Started
 
 First just

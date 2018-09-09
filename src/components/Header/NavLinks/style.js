@@ -28,13 +28,14 @@ export const Link = styled(NavLink).attrs({
     color: ${props => props.theme.colorWhite};
     border-bottom: 4px solid transparent;
     height: 100%;
+    font-size: 2rem;
 
     &:hover {
-        border-bottom: 4px solid #fff;
+        border-bottom: 4px solid ${props => props.theme.colorWhite};
     }
 
     &.active {
-        border-bottom: 4px solid #fff;
+        border-bottom: 4px solid ${props => props.theme.colorWhite};
     }
 `;
 

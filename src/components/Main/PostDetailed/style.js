@@ -35,49 +35,18 @@ export const Article = styled.div`
         margin: 0;
     }
 
-    > h3 {
+    > h1 {
         margin-bottom: 4px;
         color: ${props => props.theme.colorPrimary};
-        font-size: 1.5em;
     }
 
-    > h4 {
+    > h2 {
         margin-bottom: 5%;
         color: ${props => props.theme.colorPrimaryLight};
-        font-size: 1.3em;
     }
 
     > p {
         text-align: justify;
         color: ${props => props.theme.colorWhite};
-        font-size: 1.1em;
-    }
-
-    @media (max-width: 1800px) {
-        > h3 {
-            font-size: 1.3em;
-        }
-
-        > h4 {
-            font-size: 1.1em;
-        }
-
-        > p {
-            font-size: 1em;
-        }
-    }
-
-    @media (max-width: 1200px) {
-        > h3 {
-            font-size: 1.1em;
-        }
-
-        > h4 {
-            font-size: 0.8em;
-        }
-
-        > p {
-            font-size: 0.8em;
-        }
     }
 `;
