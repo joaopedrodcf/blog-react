@@ -11,6 +11,7 @@ export const Container = styled.div`
     box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     margin-bottom: 20px;
     margin-top: 20px;
+    border-radius: 2px;
 
     @media (max-width: 900px) {
         grid-template-rows: 1fr auto;

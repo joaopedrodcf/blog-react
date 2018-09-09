@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Formik } from 'formik';
 import axios from 'axios';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, Image, LabelFile } from './style';
 
 function createPost(values, { resetForm }) {
     const { title, description, text, image } = values;
@@ -63,107 +63,132 @@ function validate(values) {
     return errors;
 }
 
-const CreatePostFormik = () => (
-    <div>
-        <Formik
-            initialValues={{
-                title: '',
-                description: '',
-                text: '',
-                image: ''
-            }}
-            validate={values => validate(values)}
-            onSubmit={(values, ...rest) => createPost(values, ...rest)}
-            render={({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                isSubmitting,
-                dirty,
-                setFieldValue
-            }) => (
-                <Form onSubmit={handleSubmit}>
-                    <h1>Create your post</h1>
-                    <Label htmlFor="title">
-                        Title:
-                        <input
-                            type="text"
-                            name="title"
-                            placeholder="Title"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.title}
-                        />
-                    </Label>
-                    <ErrorLabel>
-                        {' '}
-                        {touched.title &&
-                            errors.title && <div>{errors.title}</div>}
-                    </ErrorLabel>
+class CreatePostFormik extends Component {
+    constructor(props) {
+        super(props);
 
-                    <Label htmlFor="description">
-                        Description:
-                        <textarea
-                            name="description"
-                            placeholder="Description"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.description}
-                        />
-                    </Label>
-                    <ErrorLabel>
-                        {' '}
-                        {touched.description &&
-                            errors.description && (
-                                <div>{errors.description}</div>
-                            )}
-                    </ErrorLabel>
+        this.state = {
+            file: null
+        };
+    }
 
-                    <Label htmlFor="text">
-                        Text:
-                        <textarea
-                            name="text"
-                            placeholder="Text"
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.text}
-                        />
-                    </Label>
-                    <ErrorLabel>
-                        {' '}
-                        {touched.text &&
-                            errors.text && <div>{errors.text}</div>}
-                    </ErrorLabel>
+    imagePreview(event) {
+        this.setState({
+            file: URL.createObjectURL(event.target.files[0])
+        });
+    }
 
-                    <input
-                        id="image"
-                        name="image"
-                        type="file"
-                        onChange={event => {
-                            setFieldValue(
-                                'image',
-                                event.currentTarget.files[0]
-                            );
-                        }}
-                    />
+    render() {
+        return (
+            <div>
+                <Formik
+                    initialValues={{
+                        title: '',
+                        description: '',
+                        text: '',
+                        image: ''
+                    }}
+                    validate={values => validate(values)}
+                    onSubmit={(values, ...rest) => createPost(values, ...rest)}
+                    render={({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        handleSubmit,
+                        isSubmitting,
+                        dirty,
+                        setFieldValue
+                    }) => (
+                        <Form onSubmit={handleSubmit}>
+                            <h1>Create your post</h1>
+                            <Label htmlFor="title">
+                                Title:
+                                <input
+                                    type="text"
+                                    name="title"
+                                    placeholder="Title"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.title}
+                                />
+                            </Label>
+                            <ErrorLabel>
+                                {' '}
+                                {touched.title &&
+                                    errors.title && <div>{errors.title}</div>}
+                            </ErrorLabel>
 
-                    <Button
-                        type="submit"
-                        disabled={
-                            (Object.keys(errors).length !== 0 &&
-                                !isSubmitting) ||
-                            !dirty
-                        }
-                    >
-                        Send message
-                    </Button>
-                </Form>
-            )}
-        />
-    </div>
-);
+                            <Label htmlFor="description">
+                                Description:
+                                <textarea
+                                    name="description"
+                                    placeholder="Description"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.description}
+                                />
+                            </Label>
+                            <ErrorLabel>
+                                {' '}
+                                {touched.description &&
+                                    errors.description && (
+                                        <div>{errors.description}</div>
+                                    )}
+                            </ErrorLabel>
+
+                            <Label htmlFor="text">
+                                Text:
+                                <textarea
+                                    name="text"
+                                    placeholder="Text"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    value={values.text}
+                                />
+                            </Label>
+                            <ErrorLabel>
+                                {' '}
+                                {touched.text &&
+                                    errors.text && <div>{errors.text}</div>}
+                            </ErrorLabel>
+
+                            <LabelFile htmlFor="image">
+                                Image:
+                                <input
+                                    id="image"
+                                    name="image"
+                                    type="file"
+                                    onChange={event => {
+                                        this.imagePreview(event);
+
+                                        setFieldValue(
+                                            'image',
+                                            event.currentTarget.files[0]
+                                        );
+                                    }}
+                                />
+                            </LabelFile>
+
+                            <Image src={this.state.file} />
+
+                            <Button
+                                type="submit"
+                                disabled={
+                                    (Object.keys(errors).length !== 0 &&
+                                        !isSubmitting) ||
+                                    !dirty
+                                }
+                            >
+                                Send message
+                            </Button>
+                        </Form>
+                    )}
+                />
+            </div>
+        );
+    }
+}
 
 export default CreatePostFormik;

@@ -62,10 +62,40 @@ export const Button = styled.button`
 `;
 
 export const Alert = styled.div`
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     padding: 10px;
     border-radius: 2px;
     text-align: center;
     ${props => !props.error && 'background-color: blue;'};
     ${props => props.error && 'background-color: red;'};
+`;
+
+export const Image = styled.img`
+    border-radius: 2px;
+    ${props => props.src && 'width: 20rem;height: 20rem;'};
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
+    background-color: ${props => props.theme.colorGrayDark};
+`;
+
+export const LabelFile = styled.label`
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
+    border: none;
+    background-color: ${props => props.theme.colorPrimary};
+    padding: 15px;
+    margin: 10px 0;
+    width: 10rem;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.01);
+        background-color: ${props => props.theme.colorPrimaryLight};
+    }
+
+    > input[type='file'] {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
 `;
