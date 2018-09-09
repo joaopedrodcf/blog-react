@@ -7,7 +7,7 @@ const Container = styled.button`
 
     @media (max-width: 600px) {
         display: unset;
-        color: rgba(255, 255, 255, 0.9);
+        color: ${props => props.theme.colorWhite};
         padding: 5px 5px;
     }
 `;

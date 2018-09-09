@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
     align-items: center;
-    background-color: rgba(19, 41, 61, 1);
+    background-color: ${props => props.theme.colorPrimaryDark};
     background-position: center;
     background-size: cover;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px ${props => props.theme.colorGrayDark};
     display: flex;
     grid-area: header;
     justify-content: space-between;
 
     > nav {
-        background-color: rgba(19, 41, 61, 1);
+        background-color: ${props => props.theme.colorPrimaryDark};
         z-index: 1;
     }
 
