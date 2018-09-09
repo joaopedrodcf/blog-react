@@ -15,8 +15,8 @@ const formatDate = date => new Date(date).toDateString();
 const Post = ({ _id, title, date, description, image }) => (
     <Container>
         <Article>
-            <h3>{title}</h3>
-            <h4>{formatDate(date)}</h4>
+            <h1>{title}</h1>
+            <h2>{formatDate(date)}</h2>
             <p>{description}</p>
         </Article>
         <FigureContainer>

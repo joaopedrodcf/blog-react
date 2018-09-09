@@ -25,16 +25,17 @@ export const Link = styled(NavLink).attrs({
     margin: auto 10px;
     padding: 19px 0;
     text-decoration: none;
-    color: white;
+    color: ${props => props.theme.colorWhite};
     border-bottom: 4px solid transparent;
     height: 100%;
+    font-size: 2rem;
 
     &:hover {
-        border-bottom: 4px solid #fff;
+        border-bottom: 4px solid ${props => props.theme.colorWhite};
     }
 
     &.active {
-        border-bottom: 4px solid #fff;
+        border-bottom: 4px solid ${props => props.theme.colorWhite};
     }
 `;
 
@@ -43,9 +44,9 @@ export const Button = styled.button`
     border: none;
     padding: 15px 32px;
     border-radius: 2px;
-    background-color: white;
+    background-color: ${props => props.theme.colorWhite};
 
     &:hover {
-        background-color: grey;
+        background-color: ${props => props.theme.colorGrayDark};
     }
 `;

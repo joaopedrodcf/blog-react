@@ -22,6 +22,11 @@ https://joaopedrodcf.github.io/blog-react
 - When a user creates a post it shows on the post who created the post
 - Like button, a user can like a post only one time per user
 
+## Asked functionalities
+- favicon e o app name
+- hash password in front end before request
+- Validate passwords like one uppercase, one lowercase, one number, etc
+
 ## Getting Started
 
 First just
@@ -114,4 +119,56 @@ And after some minutes the site will be live with your changes
 * [stylelint-config-styled-components](https://github.com/styled-components/stylelint-config-styled-components) - The shareable stylelint config for stylelint-processor-styled-components
 * [stylelint-processor-styled-components](https://github.com/styled-components/stylelint-processor-styled-components) - Lint your styled components with stylelint! 
 
+# Docs
 
+- This docs contains useful information that helped me build this React app and there references
+- It can be useful in other projects and for others
+
+## index.js
+
+```javascript
+injectGlobal`
+    body,
+    html,
+    #root {
+        height: 100%;
+    }
+`;
+```
+
+- Inject global css
+- source: https://egghead.io/lessons/react-style-the-body-element-with-styled-components-and-injectglobal
+
+```javascript
+injectGlobal`
+    body,
+    html,
+    #root {
+        height: 100%;
+    }
+`;
+```
+
+- Inject theme css
+- source: https://egghead.io/lessons/react-theme-your-application-with-styled-components-and-themeprovider
+
+
+```css
+a:active {
+    outline: none;
+}
+```
+- Remove dotted link borders on mobile!
+- source:  https://css-tricks.com/snippets/css/remove-dotted-link-borders/
+
+```css
+*:not(path):not(g) {
+    color:                    hsla(210, 100%, 100%, 0.9) !important;
+    background:               hsla(210, 100%,  50%, 0.5) !important;
+    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+
+    box-shadow: none !important;
+}
+```
+- CSS DEBUG
+- https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const ContainerPages = styled.div`
-    background-color: rgba(27, 152, 224, 0.4);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: ${props => props.theme.colorPrimaryDark};
+    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
     padding: 10px;
     border-radius: 2px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    color: ${props => props.theme.colorWhite};
 
     > h1 {
         text-align: center;
@@ -17,13 +18,16 @@ export const ContainerPages = styled.div`
 export const PaginationButton = styled.button`
     background: none;
     border: none;
-    color: white;
+    color: ${props =>
+        props.active ? props.theme.colorPrimary : props.theme.colorWhite};
     border-bottom: 4px solid transparent;
     margin: 5px;
-    ${props => props.active && 'color: black;border-bottom: 4px solid black;'};
+    ${props =>
+        props.active &&
+        `border-bottom: 4px solid ${props.theme.colorPrimary};`};
 
     &:hover {
-        color: black;
-        border-bottom: 4px solid black;
+        color: ${props => props.theme.colorPrimary};
+        border-bottom: 4px solid ${props => props.theme.colorPrimary};
     }
 `;

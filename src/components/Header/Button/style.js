@@ -4,10 +4,11 @@ const Container = styled.button`
     background: none;
     border: none;
     display: none;
+    font-size: 3.2rem;
 
     @media (max-width: 600px) {
         display: unset;
-        color: rgba(255, 255, 255, 0.9);
+        color: ${props => props.theme.colorWhite};
         padding: 5px 5px;
     }
 `;

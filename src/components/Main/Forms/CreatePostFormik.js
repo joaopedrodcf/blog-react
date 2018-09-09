@@ -88,6 +88,7 @@ const CreatePostFormik = () => (
                 <Form onSubmit={handleSubmit}>
                     <h1>Create your post</h1>
                     <Label htmlFor="title">
+                        Title:
                         <input
                             type="text"
                             name="title"
@@ -104,6 +105,7 @@ const CreatePostFormik = () => (
                     </ErrorLabel>
 
                     <Label htmlFor="description">
+                        Description:
                         <textarea
                             name="description"
                             placeholder="Description"
@@ -121,6 +123,7 @@ const CreatePostFormik = () => (
                     </ErrorLabel>
 
                     <Label htmlFor="text">
+                        Text:
                         <textarea
                             name="text"
                             placeholder="Text"

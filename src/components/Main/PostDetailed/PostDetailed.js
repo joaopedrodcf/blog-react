@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import { Container, Article, Figure, FigureContainer } from './style';
 
+const formatDate = date => new Date(date).toDateString();
+
 class PostDetailed extends React.Component {
     // This type of constructor is useful basically is doing {match} = this.props.match
     constructor(props) {
@@ -42,8 +44,8 @@ class PostDetailed extends React.Component {
         return (
             <Container>
                 <Article>
-                    <h3>{title}</h3>
-                    <h4>{date}</h4>
+                    <h1>{title}</h1>
+                    <h2>{formatDate(date)}</h2>
                     <p>{text}</p>
                 </Article>
                 <FigureContainer>
