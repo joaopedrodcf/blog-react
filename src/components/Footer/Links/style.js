@@ -6,7 +6,7 @@ const Link = styled.a`
     transition: 0.3s;
     font-weight: bold;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.9);
+    color: ${props => props.theme.colorWhite};
     margin-bottom: 10px;
 
     &:hover {
