@@ -172,3 +172,9 @@ a:active {
 ```
 - CSS DEBUG
 - https://medium.freecodecamp.org/heres-my-favorite-weird-trick-to-debug-css-88529aa5a6a3
+
+```js
+```
+
+- Isolate injectGlobal
+- https://stackoverflow.com/questions/42675725/isolated-styled-components-with-font-face
