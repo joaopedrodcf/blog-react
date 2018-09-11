@@ -1,7 +1,10 @@
+import axios from 'axios';
 import actionTypes from './actionsTypes';
 
-import { loginAsync, registerAsync, logoutAsync } from '../utils/';
-
+const endpointLogin = '/api/login';
+const endpointRegister = '/api/register';
+const urlLogin = process.env.REACT_APP_API_HOST + endpointLogin;
+const urlRegister = process.env.REACT_APP_API_HOST + endpointRegister;
 /*
  * action creators
  */
@@ -69,8 +72,16 @@ export function logoutStart() {
 export function login(email, password) {
     return dispatch => {
         dispatch(loginStart());
-        loginAsync(email, password)
-            .then(() => {
+
+        axios
+            .post(urlLogin, {
+                email,
+                password
+            })
+            .then(response => {
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('email', email);
+
                 dispatch(loginSuccess(email));
             })
             .catch(() => {
@@ -83,9 +94,18 @@ export function register(email, password) {
     return dispatch => {
         dispatch(registerStart());
 
-        registerAsync(email, password)
-            .then(() => dispatch(registerSuccess(email)))
-            .catch(() => dispatch(registerError()));
+        axios
+            .post(urlRegister, {
+                email,
+                password
+            })
+            .then(response => {
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('email', email);
+
+                dispatch(registerSuccess(email));
+            })
+            .catch(() => dispatch(registerError(email)));
     };
 }
 
@@ -93,8 +113,9 @@ export function logout() {
     return dispatch => {
         dispatch(logoutStart());
 
-        logoutAsync()
-            .then(() => dispatch(logoutSuccess()))
-            .catch(() => dispatch(logoutError()));
+        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+
+        dispatch(logoutSuccess());
     };
 }

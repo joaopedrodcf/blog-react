@@ -9,7 +9,7 @@ import logger from 'redux-logger';
 
 import Routes from './Routes';
 import reducers from './reducers';
-import './injectGlobalCss';
+import './globalStyle';
 
 const initialState = {
     reduxIsAuthenticated: !!localStorage.getItem('token'),

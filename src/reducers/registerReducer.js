@@ -14,7 +14,9 @@ const registerReducer = (state = [], action) => {
             };
         case actionTypes.REGISTER_ERROR:
             return {
-                ...state
+                ...state,
+                reduxIsAuthenticated: false,
+                email: null
             };
         default:
             return state;

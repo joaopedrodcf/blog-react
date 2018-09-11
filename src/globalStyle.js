@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 
-const injectGlobalCss = injectGlobal`
+const globalCss = injectGlobal`
     body,
     html,
     #root {
@@ -52,4 +52,4 @@ const injectGlobalCss = injectGlobal`
     }
 */
 
-export default injectGlobalCss;
+export default globalCss;

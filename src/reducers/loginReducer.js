@@ -14,7 +14,9 @@ const loginReducer = (state = [], action) => {
             };
         case actionTypes.LOGIN_ERROR:
             return {
-                ...state
+                ...state,
+                reduxIsAuthenticated: false,
+                email: null
             };
         default:
             return state;
