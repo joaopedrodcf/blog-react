@@ -1,10 +1,7 @@
-import axios from 'axios';
 import actionTypes from './actionsTypes';
 
-const endpointLogin = '/api/login';
-const endpointRegister = '/api/register';
-const urlLogin = process.env.REACT_APP_API_HOST + endpointLogin;
-const urlRegister = process.env.REACT_APP_API_HOST + endpointRegister;
+import { registerService, loginService, logoutService } from '../services/api';
+
 /*
  * action creators
  */
@@ -73,20 +70,14 @@ export function login(email, password) {
     return dispatch => {
         dispatch(loginStart());
 
-        axios
-            .post(urlLogin, {
-                email,
-                password
-            })
-            .then(response => {
-                localStorage.setItem('token', response.data.token);
-                localStorage.setItem('email', email);
-
+        loginService(email, password).then(
+            () => {
                 dispatch(loginSuccess(email));
-            })
-            .catch(() => {
-                dispatch(loginError());
-            });
+            },
+            () => {
+                dispatch(loginError(email));
+            }
+        );
     };
 }
 
@@ -94,27 +85,20 @@ export function register(email, password) {
     return dispatch => {
         dispatch(registerStart());
 
-        axios
-            .post(urlRegister, {
-                email,
-                password
-            })
-            .then(response => {
-                localStorage.setItem('token', response.data.token);
-                localStorage.setItem('email', email);
-
+        registerService(email, password).then(
+            () => {
                 dispatch(registerSuccess(email));
-            })
-            .catch(() => dispatch(registerError(email)));
+            },
+            () => {
+                dispatch(registerError(email));
+            }
+        );
     };
 }
 
 export function logout() {
     return dispatch => {
-        dispatch(logoutStart());
-
-        localStorage.removeItem('token');
-        localStorage.removeItem('email');
+        logoutService();
 
         dispatch(logoutSuccess());
     };
