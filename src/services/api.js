@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const endpointLogin = '/api/login';
-const endpointRegister = '/api/register';
-const urlLogin = process.env.REACT_APP_API_HOST + endpointLogin;
-const urlRegister = process.env.REACT_APP_API_HOST + endpointRegister;
+const urlLogin = `${process.env.REACT_APP_API_HOST}/api/login`;
+const urlRegister = `${process.env.REACT_APP_API_HOST}/api/register`;
+const urlPost = `${process.env.REACT_APP_API_HOST}/api/post`;
+const urlContact = `${process.env.REACT_APP_API_HOST}/api/send-email`;
+const urlGetPosts = `${process.env.REACT_APP_API_HOST}/api/posts/`;
 
 export function loginService(email, password) {
     return axios
@@ -12,7 +13,6 @@ export function loginService(email, password) {
             password
         })
         .then(response => {
-            console.log(response);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('email', email);
         });
@@ -25,7 +25,6 @@ export function registerService(email, password) {
             password
         })
         .then(response => {
-            console.log(response);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('email', email);
         });
@@ -34,4 +33,47 @@ export function registerService(email, password) {
 export function logoutService() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
+}
+
+export function createPostService(title, description, text, image) {
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('text', text);
+    formData.append('image', image);
+
+    const token = localStorage.getItem('token');
+
+    const headers = {
+        'x-access-token': token,
+        'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
+    const config = {
+        headers
+    };
+
+    return axios.post(urlPost, formData, config).then(response => {
+        console.log(response);
+    });
+}
+
+export function contactService(name, email, message) {
+    return axios.post(urlContact, {
+        name,
+        email,
+        message
+    });
+}
+
+export function getPostsService(page, currentPage, isMinus, isPlus) {
+    let curPage = page;
+
+    if (isMinus) {
+        curPage = currentPage - 1;
+    } else if (isPlus) {
+        curPage = currentPage + 1;
+    }
+
+    return axios.get(urlGetPosts + curPage);
 }

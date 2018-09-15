@@ -1,44 +1,22 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
-import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button, Image, LabelFile } from './style';
+import { createPostService } from '../../../services/api';
 
 function createPost(values, { resetForm }) {
     const { title, description, text, image } = values;
 
-    const endpoint = '/api/post';
-    const url = process.env.REACT_APP_API_HOST + endpoint;
-
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('text', text);
-    formData.append('image', image);
-
-    // const headers = new Headers();
-    const token = localStorage.getItem('token');
-
-    const headers = {
-        'x-access-token': token,
-        'Content-Type': 'application/x-www-form-urlencoded'
-    };
-
-    const config = {
-        headers
-    };
-
-    axios
-        .post(url, formData, config)
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-
-    resetForm();
-    document.querySelector('input[type=file]').value = '';
+    createPostService(title, description, text, image).then(
+        () => {
+            resetForm();
+            document.querySelector('input[type=file]').value = '';
+        },
+        () => {
+            resetForm();
+            document.querySelector('input[type=file]').value = '';
+        }
+    );
 }
 
 function validate(values) {

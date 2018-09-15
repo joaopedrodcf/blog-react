@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
-import axios from 'axios';
 
 import Post from '../Post/Post';
 import { ContainerPages, PaginationButton } from './style';
+import { getPostsService } from '../../../services/api';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -28,17 +28,9 @@ export default class Home extends React.Component {
     getPostsPagination(page, isMinus, isPlus) {
         const { currentPage } = this.state;
 
-        let curPage = page;
-
-        if (isMinus) {
-            curPage = currentPage - 1;
-        } else if (isPlus) {
-            curPage = currentPage + 1;
-        }
-
-        axios.get(this.url + curPage).then(response => {
+        getPostsService(page, currentPage, isMinus, isPlus).then(response => {
             this.setState({
-                currentPage: curPage,
+                currentPage: response.data.current,
                 posts: response.data.posts,
                 totalPages: response.data.pages
             });
@@ -51,26 +43,15 @@ export default class Home extends React.Component {
         const buttons = [];
 
         for (let i = 1; i < totalPages + 1; i += 1) {
-            if (currentPage === i) {
-                buttons.push(
-                    <PaginationButton
-                        key={i}
-                        onClick={() => this.getPostsPagination(i, false, false)}
-                        active
-                    >
-                        {i}
-                    </PaginationButton>
-                );
-            } else {
-                buttons.push(
-                    <PaginationButton
-                        key={i}
-                        onClick={() => this.getPostsPagination(i, false, false)}
-                    >
-                        {i}
-                    </PaginationButton>
-                );
-            }
+            buttons.push(
+                <PaginationButton
+                    key={i}
+                    onClick={() => this.getPostsPagination(i, false, false)}
+                    active={currentPage === i}
+                >
+                    {i}
+                </PaginationButton>
+            );
         }
 
         return (

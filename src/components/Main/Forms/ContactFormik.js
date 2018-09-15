@@ -1,22 +1,20 @@
 import React from 'react';
 import { Formik } from 'formik';
-import axios from 'axios';
 
 import { Label, ErrorLabel, Form, Button } from './style';
+import { contactService } from '../../../services/api';
 
 function sendMessage(values, { resetForm }) {
     const { name, email, message } = values;
 
-    const endpoint = '/api/send-email';
-    const url = process.env.REACT_APP_API_HOST + endpoint;
-
-    axios.post(url, {
-        name,
-        email,
-        message
-    });
-
-    resetForm();
+    contactService(name, email, message).then(
+        () => {
+            resetForm();
+        },
+        () => {
+            resetForm();
+        }
+    );
 }
 
 function validate(values) {
