@@ -5,6 +5,7 @@ const urlRegister = `${process.env.REACT_APP_API_HOST}/api/register`;
 const urlPost = `${process.env.REACT_APP_API_HOST}/api/post`;
 const urlContact = `${process.env.REACT_APP_API_HOST}/api/send-email`;
 const urlGetPosts = `${process.env.REACT_APP_API_HOST}/api/posts/`;
+const urlGetPost = `${process.env.REACT_APP_API_HOST}/api/post/`;
 
 export function loginService(email, password) {
     return axios
@@ -74,4 +75,8 @@ export function getPostsService(page, currentPage, isMinus, isPlus) {
     }
 
     return axios.get(urlGetPosts + curPage);
+}
+
+export function getPost(id) {
+    return axios.get(urlGetPost + id);
 }

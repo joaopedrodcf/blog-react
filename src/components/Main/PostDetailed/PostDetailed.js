@@ -1,8 +1,7 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
-
 import { Container, Article, Figure, FigureContainer } from './style';
+import { getPost } from '../../../services/api';
 
 const formatDate = date => new Date(date).toDateString();
 
@@ -12,13 +11,11 @@ class PostDetailed extends React.Component {
         super(props);
 
         this.state = {
-            post: []
+            post: {},
+            author: {}
         };
 
         this.getPost = this.getPost.bind(this);
-
-        this.endpoint = '/api/post/';
-        this.url = process.env.REACT_APP_API_HOST + this.endpoint;
     }
 
     componentDidMount() {
@@ -26,26 +23,32 @@ class PostDetailed extends React.Component {
     }
 
     getPost() {
-        const { id } = this.props.match.params;
+        const {
+            match: {
+                params: { id }
+            }
+        } = this.props;
 
-        axios.get(this.url + id).then(response => {
+        getPost(id).then(response => {
             this.setState({
-                post: response.data
+                post: response.data,
+                author: response.data.author
             });
+            console.log(response.data);
         });
     }
 
-    //  return <div>I'm the post details {this.state.id}</div>;
     render() {
-        const post = Object.assign({}, this.state.post);
-
+        const { post, author } = this.state;
         const { title, date, text, image } = post;
-
+        const { email } = author;
         return (
             <Container>
                 <Article>
                     <h1>{title}</h1>
-                    <h2>{formatDate(date)}</h2>
+                    <h2>
+                        {email} {formatDate(date)}
+                    </h2>
                     <p>{text}</p>
                 </Article>
                 <FigureContainer>

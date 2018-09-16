@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { login, register } from '../../actions';
 import Main from './Main';
+import { login, register } from '../../actions';
 
 const mapStateToProps = ({ reduxIsAuthenticated, email }, ownProps) => ({
     reduxIsAuthenticated,

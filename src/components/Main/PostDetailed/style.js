@@ -37,12 +37,12 @@ export const Article = styled.div`
     }
 
     > h1 {
-        margin-bottom: 4px;
+        margin-bottom: ${props => props.theme.spaceXs};
         color: ${props => props.theme.colorPrimary};
     }
 
     > h2 {
-        margin-bottom: 5%;
+        margin-bottom: ${props => props.theme.spaceXxl};
         color: ${props => props.theme.colorPrimaryLight};
     }
 

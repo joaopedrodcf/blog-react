@@ -14,7 +14,13 @@ const theme = {
     textMd: '1.8rem',
     textLg: '2rem',
     textXl: '2.2rem',
-    textXxl: '2.4rem'
+    textXxl: '2.4rem',
+    spaceXs: '0.2em',
+    spaceSm: '0.4em',
+    spaceMd: '0.6em',
+    spaceLg: '0.8em',
+    spaceXl: '1.0em',
+    spaceXxl: '1.2em'
 };
 
 export default theme;
