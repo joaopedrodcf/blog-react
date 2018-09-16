@@ -1,5 +1,12 @@
 import { injectGlobal } from 'styled-components';
 
+const textXs = '1.4rem';
+const textSm = '1.6rem';
+const textMd = '1.8rem';
+const textLg = '2rem';
+// const textXl = '2.2rem';
+const textXxl = '2.4rem';
+
 const globalCss = injectGlobal`
     body,
     html,
@@ -10,36 +17,39 @@ const globalCss = injectGlobal`
 
     * {
         box-sizing: border-box;
-        font-size: 1.6rem;
+        font-size: ${textSm};
+        padding: 0;
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
     }
 
     h1 {
-        font-size: 2.4rem;
+        font-size: ${textXxl} !important;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: ${textLg} !important;
     }
 
     h3 {
-        font-size: 1.8rem;
+        font-size: ${textMd} !important;
     }
 
     h4 {
-        font-size: 1.6rem;
+        font-size: ${textSm} !important;
     }
 
     h5 {
-        font-size: 1.4rem;
+        font-size: ${textXs} !important;
     }
 
     p {
-        font-size: 1.8rem;
+        font-size: ${textMd} !important;
     }
 
     a,
     a:active {
-        font-size: 1.8rem;
+        font-size: ${textMd} !important;
         outline: none;
     }
 `;

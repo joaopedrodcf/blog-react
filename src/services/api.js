@@ -53,9 +53,7 @@ export function createPostService(title, description, text, image) {
         headers
     };
 
-    return axios.post(urlPost, formData, config).then(response => {
-        console.log(response);
-    });
+    return axios.post(urlPost, formData, config);
 }
 
 export function contactService(name, email, message) {

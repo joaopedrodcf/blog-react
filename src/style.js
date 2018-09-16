@@ -6,7 +6,6 @@ const Global = styled.div`
     grid-template-rows: 60px auto 90px;
     grid-template-areas: 'header header header' ' . main . ' 'footer footer footer';
     grid-gap: 20px;
-    font-family: 'Open Sans', sans-serif;
     height: 100%;
 
     @media (max-width: 1200px) {

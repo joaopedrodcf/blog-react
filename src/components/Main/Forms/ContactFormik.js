@@ -73,7 +73,6 @@ const ContactFormik = () => (
                         />
                     </Label>
                     <ErrorLabel>
-                        {' '}
                         {touched.name &&
                             errors.name && <div>{errors.name}</div>}
                     </ErrorLabel>
@@ -90,7 +89,6 @@ const ContactFormik = () => (
                         />
                     </Label>
                     <ErrorLabel>
-                        {' '}
                         {touched.email &&
                             errors.email && <div>{errors.email}</div>}
                     </ErrorLabel>
@@ -106,7 +104,6 @@ const ContactFormik = () => (
                         />
                     </Label>
                     <ErrorLabel>
-                        {' '}
                         {touched.message &&
                             errors.message && <div>{errors.message}</div>}
                     </ErrorLabel>
