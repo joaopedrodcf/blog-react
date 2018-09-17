@@ -24,32 +24,32 @@ const globalCss = injectGlobal`
     }
 
     h1 {
-        font-size: ${textXxl} !important;
+        font-size: ${textXxl} ;
     }
 
     h2 {
-        font-size: ${textLg} !important;
+        font-size: ${textLg};
     }
 
     h3 {
-        font-size: ${textMd} !important;
+        font-size: ${textMd};
     }
 
     h4 {
-        font-size: ${textSm} !important;
+        font-size: ${textSm};
     }
 
     h5 {
-        font-size: ${textXs} !important;
+        font-size: ${textXs};
     }
 
     p {
-        font-size: ${textMd} !important;
+        font-size: ${textMd};
     }
 
     a,
     a:active {
-        font-size: ${textMd} !important;
+        font-size: ${textMd};
         outline: none;
     }
 `;

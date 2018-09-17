@@ -4,6 +4,7 @@ import { ContainerLogoIcon, Container } from './style';
 import NavLinks from './NavLinks/NavLinks';
 import Logo from './Logo/Logo';
 import Button from './Button/Button';
+import HeaderMobile from './HeaderMobile/HeaderMobile';
 
 class Header extends React.Component {
     constructor(props) {
@@ -18,11 +19,13 @@ class Header extends React.Component {
 
     handleClick(event) {
         event.preventDefault();
+        const { toogle } = this.state;
 
-        this.setState({ toogle: !this.state.toogle });
+        this.setState({ toogle: !toogle });
     }
 
     render() {
+        const { toogle } = this.state;
         return (
             <Container>
                 <ContainerLogoIcon>
@@ -31,7 +34,8 @@ class Header extends React.Component {
                     </Link>
                     <Button handleClick={this.handleClick} />
                 </ContainerLogoIcon>
-                <NavLinks toogle={this.state.toogle} {...this.props} />
+                <NavLinks toogle={toogle} {...this.props} />
+                <HeaderMobile />
             </Container>
         );
     }
