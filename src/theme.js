@@ -20,7 +20,8 @@ const theme = {
     spaceMd: '0.6em',
     spaceLg: '0.8em',
     spaceXl: '1.0em',
-    spaceXxl: '1.2em'
+    spaceXxl: '1.2em',
+    shadow: '0 2px 4px #AAAAAA'
 };
 
 export default theme;

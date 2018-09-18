@@ -8,14 +8,14 @@ export const Nav = styled.nav`
     align-items: center;
     justify-content: center;
     height: 100%;
+    background-color: ${props => props.theme.colorPrimaryDark};
 
+    /* Links begin closed when screen is small */
     @media (max-width: 600px) {
         flex-direction: column;
         padding: 20px;
         height: auto;
         ${props => !props.toogle && 'display: none;'};
-
-        /* Links begin closed when screen is small */
     }
 `;
 
