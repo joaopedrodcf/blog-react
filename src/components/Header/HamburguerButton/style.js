@@ -5,6 +5,7 @@ const Wrapper = styled.button`
     border: none;
     display: none;
     font-size: 3.2rem;
+    cursor: pointer;
 
     @media (max-width: 600px) {
         display: unset;

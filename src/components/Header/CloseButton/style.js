@@ -7,7 +7,10 @@ const Container = styled.button`
     right: 0;
     margin: 2.4rem;
     z-index: 10;
+    font-size: 3.2rem;
+    cursor: pointer;
     background-color: ${props => props.theme.colorPrimaryDark};
+    color: ${props => props.theme.colorWhite};
 `;
 
 export default Container;
