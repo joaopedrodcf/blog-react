@@ -20,7 +20,7 @@ const globalCss = injectGlobal`
         font-size: ${textSm};
         padding: 0;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     h1 {
