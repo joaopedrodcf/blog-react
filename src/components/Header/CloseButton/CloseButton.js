@@ -1,15 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from './style';
+import { Container, Button } from './style';
 
-const CloseButton = ({ handleClick }) => (
+const CloseButton = ({ handleClick, children }) => (
     <Container onClick={handleClick}>
-        <i className="far fa-window-close" />
+        {children}
+        <Button>
+            <i className="far fa-window-close" />
+        </Button>
     </Container>
 );
 
 CloseButton.propTypes = {
-    handleClick: PropTypes.func.isRequired
+    handleClick: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired
 };
 
 export default CloseButton;

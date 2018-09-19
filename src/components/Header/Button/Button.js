@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Wrapper from './style';
 
-import Container from './style';
-
-const Button = ({ handleClick }) => (
-    <Container onClick={handleClick}>
-        <i className="fas fa-bars" />
-    </Container>
+const Button = ({ logoutRedux, email }) => (
+    <Wrapper onClick={logoutRedux}>Logout: {email} </Wrapper>
 );
 
 Button.propTypes = {
-    handleClick: PropTypes.func.isRequired
+    logoutRedux: PropTypes.func.isRequired,
+    email: PropTypes.string.isRequired
 };
+
 export default Button;

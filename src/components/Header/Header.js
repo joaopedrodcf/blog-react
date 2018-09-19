@@ -25,7 +25,11 @@ class Header extends React.Component {
         return (
             <React.Fragment>
                 <TestHeader handleClick={this.handleClick} {...this.props} />
-                <HeaderMobile handleClick={this.handleClick} toogle={toogle} />
+                <HeaderMobile
+                    handleClick={this.handleClick}
+                    toogle={toogle}
+                    {...this.props}
+                />
             </React.Fragment>
         );
     }

@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-const Container = styled.button`
-    background: none;
+const Wrapper = styled.button`
+    margin: 10px 10px;
     border: none;
-    display: none;
-    font-size: 3.2rem;
+    padding: 15px 32px;
+    border-radius: 2px;
+    background-color: ${props => props.theme.colorWhite};
 
-    @media (max-width: 600px) {
-        display: unset;
-        color: ${props => props.theme.colorWhite};
-        padding: 5px 5px;
+    &:hover {
+        background-color: ${props => props.theme.colorGrayDark};
     }
 `;
 
-export default Container;
+export default Wrapper;

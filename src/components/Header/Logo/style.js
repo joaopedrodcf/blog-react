@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 const Img = styled.img`
-    width: 50px;
+    width: ${props => props.theme.space.xxl};
     height: 100%;
-    padding: 5px 0;
-    margin-left: 5px;
+    padding: ${props => props.theme.space.md};
 `;
 
 export default Img;
