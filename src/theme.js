@@ -1,26 +1,44 @@
 const theme = {
-    colorPrimary: '#0074D9',
-    colorPrimaryLight: '#7FDBFF',
-    colorPrimaryDark: '#001f3f',
-    colorGrayLight: '#DDDDDD',
-    colorGrayDark: '#AAAAAA',
-    colorBlack: '#111111',
-    colorYellow: '#FFDC00',
-    colorRed: '#FF4136',
-    colorRedDark: '#85144b',
-    colorWhite: '#FFFFFF',
-    textXs: '1.4rem',
-    textSm: '1.6rem',
-    textMd: '1.8rem',
-    textLg: '2rem',
-    textXl: '2.2rem',
-    textXxl: '2.4rem',
-    spaceXs: '0.2em',
-    spaceSm: '0.4em',
-    spaceMd: '0.6em',
-    spaceLg: '0.8em',
-    spaceXl: '1.0em',
-    spaceXxl: '1.2em'
+    color: {
+        blue: {
+            default: '#0074D9',
+            light: '#7FDBFF',
+            dark: '#001f3f'
+        },
+        gray: {
+            light: '#DDDDDD',
+            dark: '#AAAAAA'
+        },
+        red: {
+            light: '#FF4136',
+            dark: '#85144b'
+        },
+        black: '#111111',
+        yellow: '#FF4136',
+        white: '#FFFFFF'
+    },
+    typography: {
+        xxs: '1.2rem',
+        xs: '1.4rem',
+        sm: '1.6rem',
+        md: '1.8rem',
+        lg: '2rem',
+        xl: '2.4rem',
+        xxl: '2.8rem',
+        xxxl: '3.2rem'
+    },
+    space: {
+        xs: '0.2rem',
+        sm: '0.4rem',
+        md: '0.8rem',
+        lg: '1.6rem',
+        xl: '3.2rem',
+        xxl: '6.4rem'
+    },
+    shadow: {
+        gray: '0 0.2rem 0.4rem #AAAAAA',
+        black: '0 0.2rem 0.4rem #111111'
+    }
 };
 
 export default theme;

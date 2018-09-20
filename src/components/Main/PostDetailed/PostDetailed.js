@@ -45,10 +45,10 @@ class PostDetailed extends React.Component {
         return (
             <Container>
                 <Article>
-                    <h1>{title}</h1>
-                    <h2>
+                    <h2>{title}</h2>
+                    <h4>
                         {email} {formatDate(date)}
-                    </h2>
+                    </h4>
                     <p>{text}</p>
                 </Article>
                 <FigureContainer>

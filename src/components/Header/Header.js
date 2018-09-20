@@ -1,9 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ContainerLogoIcon, Container } from './style';
-import NavLinks from './NavLinks/NavLinks';
-import Logo from './Logo/Logo';
-import Button from './Button/Button';
+import HeaderMobile from './HeaderMobile';
+import HeaderWrapper from './HeaderWrapper';
 
 class Header extends React.Component {
     constructor(props) {
@@ -18,21 +15,22 @@ class Header extends React.Component {
 
     handleClick(event) {
         event.preventDefault();
+        const { toogle } = this.state;
 
-        this.setState({ toogle: !this.state.toogle });
+        this.setState({ toogle: !toogle });
     }
 
     render() {
+        const { toogle } = this.state;
         return (
-            <Container>
-                <ContainerLogoIcon>
-                    <Link to="/">
-                        <Logo />
-                    </Link>
-                    <Button handleClick={this.handleClick} />
-                </ContainerLogoIcon>
-                <NavLinks toogle={this.state.toogle} {...this.props} />
-            </Container>
+            <React.Fragment>
+                <HeaderWrapper handleClick={this.handleClick} {...this.props} />
+                <HeaderMobile
+                    handleClick={this.handleClick}
+                    toogle={toogle}
+                    {...this.props}
+                />
+            </React.Fragment>
         );
     }
 }

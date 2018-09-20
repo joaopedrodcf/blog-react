@@ -1,11 +1,5 @@
 import { injectGlobal } from 'styled-components';
-
-const textXs = '1.4rem';
-const textSm = '1.6rem';
-const textMd = '1.8rem';
-const textLg = '2rem';
-// const textXl = '2.2rem';
-const textXxl = '2.4rem';
+import theme from './theme';
 
 const globalCss = injectGlobal`
     body,
@@ -17,39 +11,38 @@ const globalCss = injectGlobal`
 
     * {
         box-sizing: border-box;
-        font-size: ${textSm};
+        font-size: ${theme.typography.sm};
         padding: 0;
         margin: 0;
-        font-family: 'Open Sans', sans-serif;
+        font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
 
     h1 {
-        font-size: ${textXxl} !important;
+        font-size: ${theme.typography.xxxl};
     }
 
     h2 {
-        font-size: ${textLg} !important;
+        font-size: ${theme.typography.xxl};
     }
 
     h3 {
-        font-size: ${textMd} !important;
+        font-size: ${theme.typography.xl};
     }
 
     h4 {
-        font-size: ${textSm} !important;
+        font-size: ${theme.typography.lg};
     }
 
     h5 {
-        font-size: ${textXs} !important;
+        font-size: ${theme.typography.md};
     }
 
     p {
-        font-size: ${textMd} !important;
+        font-size: ${theme.typography.md};
     }
 
-    a,
-    a:active {
-        font-size: ${textMd} !important;
+    a {
+        font-size: ${theme.typography.xxs};
         outline: none;
     }
 `;
