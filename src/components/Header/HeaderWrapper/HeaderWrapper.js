@@ -6,7 +6,12 @@ import Nav from '../Nav';
 import Logo from '../Logo';
 import HamburguerButton from '../HamburguerButton';
 
-const Header = ({ handleClick, reduxIsAuthenticated, email, logoutRedux }) => (
+const HeaderWrapper = ({
+    handleClick,
+    reduxIsAuthenticated,
+    email,
+    logoutRedux
+}) => (
     <Wrapper>
         <Link to="/">
             <Logo />
@@ -20,11 +25,11 @@ const Header = ({ handleClick, reduxIsAuthenticated, email, logoutRedux }) => (
     </Wrapper>
 );
 
-Header.propTypes = {
+HeaderWrapper.propTypes = {
     reduxIsAuthenticated: PropTypes.bool.isRequired,
     handleClick: PropTypes.func.isRequired,
     logoutRedux: PropTypes.func.isRequired,
     email: PropTypes.string.isRequired
 };
 
-export default Header;
+export default HeaderWrapper;

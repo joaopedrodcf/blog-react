@@ -1,6 +1,6 @@
 import React from 'react';
-import HeaderMobile from './HeaderMobile/HeaderMobile';
-import TestHeader from './Header/Header';
+import HeaderMobile from './HeaderMobile';
+import HeaderWrapper from './HeaderWrapper';
 
 class Header extends React.Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Header extends React.Component {
         const { toogle } = this.state;
         return (
             <React.Fragment>
-                <TestHeader handleClick={this.handleClick} {...this.props} />
+                <HeaderWrapper handleClick={this.handleClick} {...this.props} />
                 <HeaderMobile
                     handleClick={this.handleClick}
                     toogle={toogle}

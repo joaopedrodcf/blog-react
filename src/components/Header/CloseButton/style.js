@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-export const Container = styled.button`
+export const Container = styled.div`
     border: none;
     cursor: pointer;
+    background-color: ${props => props.theme.color.blue.dark};
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background-color: ${props => props.theme.color.blue.dark};
 `;
 
 export const Button = styled.button`

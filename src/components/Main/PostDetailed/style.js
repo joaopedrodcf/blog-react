@@ -4,14 +4,13 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 500px auto;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
-    padding: 10px;
+    grid-gap: ${props => props.theme.space.md};
+    padding: ${props => props.theme.space.md};
     grid-template-areas: 'figure figure figure' 'article article article';
-    background-color: ${props => props.theme.colorPrimaryDark};
-    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-radius: 2px;
+    background-color: ${props => props.theme.color.blue.dark};
+    box-shadow: ${props => props.theme.shadow};
+    margin: ${props => props.theme.space.lg} 0;
+    border-radius: ${props => props.theme.space.xs};
 
     @media (max-width: 900px) {
         grid-template-rows: 1fr auto;
@@ -26,7 +25,7 @@ export const Figure = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    box-shadow: 0 2px 4px ${props => props.theme.colorBlack};
+    box-shadow: ${props => props.theme.shadow};
 `;
 
 export const Article = styled.div`
@@ -37,17 +36,17 @@ export const Article = styled.div`
     }
 
     > h1 {
-        margin-bottom: ${props => props.theme.spaceXs};
-        color: ${props => props.theme.colorPrimary};
+        margin-bottom: ${props => props.theme.space.xs};
+        color: ${props => props.theme.color.blue.default};
     }
 
-    > h2 {
-        margin-bottom: ${props => props.theme.spaceXxl};
-        color: ${props => props.theme.colorPrimaryLight};
+    > h4 {
+        margin-bottom: ${props => props.theme.space.xl};
+        color: ${props => props.theme.color.blue.light};
     }
 
     > p {
         text-align: justify;
-        color: ${props => props.theme.colorWhite};
+        color: ${props => props.theme.color.white};
     }
 `;

@@ -2,18 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button } from './style';
 
-const CloseButton = ({ handleClick, children }) => (
+import Links from '../Links';
+
+const CloseButton = ({ handleClick, reduxIsAuthenticated }) => (
     <Container onClick={handleClick}>
-        {children}
         <Button>
             <i className="far fa-window-close" />
         </Button>
+        <div>
+            <Links reduxIsAuthenticated={reduxIsAuthenticated} />
+        </div>
     </Container>
 );
 
 CloseButton.propTypes = {
     handleClick: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired
+    reduxIsAuthenticated: PropTypes.bool.isRequired
 };
 
 export default CloseButton;
