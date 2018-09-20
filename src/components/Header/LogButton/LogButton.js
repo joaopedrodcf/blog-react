@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Wrapper from './style';
 
-const Button = ({ logoutRedux, email }) => (
+const LogButton = ({ logoutRedux, email }) => (
     <Wrapper onClick={logoutRedux}>Logout: {email} </Wrapper>
 );
 
-Button.propTypes = {
+LogButton.propTypes = {
     logoutRedux: PropTypes.func.isRequired,
     email: PropTypes.string.isRequired
 };
 
-export default Button;
+export default LogButton;

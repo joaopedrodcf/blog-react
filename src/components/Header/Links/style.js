@@ -14,6 +14,8 @@ const Link = styled(NavLink).attrs({
     border-bottom: 4px solid transparent;
     height: 100%;
     font-size: ${fontSize};
+    display: flex;
+    align-items: flex-end;
 
     &:hover {
         border-bottom: 4px solid ${color};

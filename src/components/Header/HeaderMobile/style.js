@@ -13,6 +13,10 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         flex-direction: column;
+
+        a {
+            margin: ${props => props.theme.space.lg} 0;
+        }
     }
 `;
 

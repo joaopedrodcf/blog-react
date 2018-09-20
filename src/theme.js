@@ -35,7 +35,10 @@ const theme = {
         xl: '3.2rem',
         xxl: '6.4rem'
     },
-    shadow: '0 0.2rem 0.4rem #AAAAAA'
+    shadow: {
+        gray: '0 0.2rem 0.4rem #AAAAAA',
+        black: '0 0.2rem 0.4rem #111111'
+    }
 };
 
 export default theme;

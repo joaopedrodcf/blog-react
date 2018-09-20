@@ -8,7 +8,7 @@ export const Container = styled.div`
     padding: ${props => props.theme.space.md};
     grid-template-areas: 'figure figure figure' 'article article article';
     background-color: ${props => props.theme.color.blue.dark};
-    box-shadow: ${props => props.theme.shadow};
+    box-shadow: ${props => props.theme.shadow.gray};
     margin: ${props => props.theme.space.lg} 0;
     border-radius: ${props => props.theme.space.xs};
 
@@ -25,7 +25,7 @@ export const Figure = styled.img`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    box-shadow: ${props => props.theme.shadow};
+    box-shadow: ${props => props.theme.shadow.black};
 `;
 
 export const Article = styled.div`
@@ -35,7 +35,7 @@ export const Article = styled.div`
         margin: 0;
     }
 
-    > h1 {
+    > h2 {
         margin-bottom: ${props => props.theme.space.xs};
         color: ${props => props.theme.color.blue.default};
     }
