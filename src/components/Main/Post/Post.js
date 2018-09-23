@@ -12,11 +12,13 @@ import {
 
 const formatDate = date => new Date(date).toDateString();
 
-const Post = ({ _id, title, date, description, image }) => (
+const Post = ({ _id, title, date, description, image, author }) => (
     <Container>
         <Article>
             <h2>{title}</h2>
-            <h4>{formatDate(date)}</h4>
+            <h4>
+                {author.email} on {formatDate(date)}
+            </h4>
             <p>{description}</p>
         </Article>
         <FigureContainer>
@@ -34,7 +36,8 @@ Post.propTypes = {
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
+    image: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired
 };
 
 export default Post;

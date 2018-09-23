@@ -34,20 +34,18 @@ class PostDetailed extends React.Component {
                 post: response.data,
                 author: response.data.author
             });
-            console.log(response.data);
         });
     }
 
     render() {
         const { post, author } = this.state;
         const { title, date, text, image } = post;
-        const { email } = author;
         return (
             <Container>
                 <Article>
                     <h2>{title}</h2>
                     <h4>
-                        {email} {formatDate(date)}
+                        {author.email} on {formatDate(date)}
                     </h4>
                     <p>{text}</p>
                 </Article>
