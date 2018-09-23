@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 
+const borderRadius = props => props.theme.space.md;
+const shadowGray = props => props.theme.shadow.gray;
+const shadowBlack = props => props.theme.shadow.black;
 export const Form = styled.form`
     background-color: ${props => props.theme.color.blue.dark};
-    box-shadow: ${props => props.theme.shadow.gray};
-    padding: ${props => props.theme.space.xl};
-    border-radius: ${props => props.theme.space.xs};
+    box-shadow: ${shadowGray};
+    padding: ${props => props.theme.space.xxl} ${props => props.theme.space.xl}
+        ${props => props.theme.space.xl} ${props => props.theme.space.xl};
+    border-radius: ${borderRadius};
     display: flex;
     flex-direction: column;
     color: ${props => props.theme.color.white};
+    position: relative;
 
     > h1 {
         text-align: center;
@@ -26,7 +31,7 @@ export const Label = styled.label`
         border: none;
         box-shadow: ${props => props.theme.shadow.black};
         padding: ${props => props.theme.space.md};
-        border-radius: ${props => props.theme.space.xs};
+        border-radius: ${borderRadius};
     }
 `;
 
@@ -42,7 +47,7 @@ export const Button = styled.button`
     background-color: ${props => props.theme.color.blue.light};
     padding: 15px;
     margin: 10px 0;
-    border-radius: ${props => props.theme.space.xs};
+    border-radius: ${borderRadius};
 
     &:disabled,
     &[disabled]:hover {
@@ -60,14 +65,14 @@ export const Button = styled.button`
 export const Alert = styled.div`
     box-shadow: ${props => props.theme.shadow.black};
     padding: 10px;
-    border-radius: ${props => props.theme.space.xs};
+    border-radius: ${borderRadius};
     text-align: center;
     ${props => !props.error && 'background-color: blue;'};
     ${props => props.error && 'background-color: red;'};
 `;
 
 export const Image = styled.img`
-    border-radius: ${props => props.theme.space.xs};
+    border-radius: ${borderRadius};
     ${props => props.src && 'width: 20rem;height: 20rem;'};
     box-shadow: 0 2px 4px ${props => props.theme.shadow.black};
     background-color: ${props => props.theme.color.gray.dark};
@@ -79,7 +84,7 @@ export const LabelFile = styled.label`
     background-color: ${props => props.theme.color.blue.default};
     padding: ${props => props.theme.space.lg};
     margin: ${props => props.theme.space.md} 0;
-    border-radius: ${props => props.theme.space.xs};
+    border-radius: ${borderRadius};
     text-align: center;
     cursor: pointer;
 
@@ -93,4 +98,14 @@ export const LabelFile = styled.label`
         height: 100%;
         display: none;
     }
+`;
+
+export const WrapperTitle = styled.div`
+    position: absolute;
+    background-color: ${props => props.theme.color.blue.light};
+    top: ${props => props.theme.space.lg};
+    left: -${props => props.theme.space.xl};
+    padding: ${props => props.theme.space.sm} ${props => props.theme.space.xl};
+    text-transform: uppercase;
+    box-shadow: ${shadowBlack};
 `;

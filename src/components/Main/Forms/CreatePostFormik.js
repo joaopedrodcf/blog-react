@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import { Formik } from 'formik';
 
-import { Label, ErrorLabel, Form, Button, Image, LabelFile } from './style';
+import {
+    Label,
+    ErrorLabel,
+    Form,
+    Button,
+    Image,
+    LabelFile,
+    WrapperTitle
+} from './style';
 import { createPostService } from '../../../services/api';
 
 function createPost(values, { resetForm }) {
@@ -57,6 +65,7 @@ class CreatePostFormik extends Component {
     }
 
     render() {
+        const { file } = this.state;
         return (
             <div>
                 <Formik
@@ -80,7 +89,9 @@ class CreatePostFormik extends Component {
                         setFieldValue
                     }) => (
                         <Form onSubmit={handleSubmit}>
-                            <h1>Create your post</h1>
+                            <WrapperTitle>
+                                <h3>Create your post</h3>
+                            </WrapperTitle>
                             <Label htmlFor="title">
                                 Title:
                                 <input
@@ -149,7 +160,7 @@ class CreatePostFormik extends Component {
                                 />
                             </LabelFile>
 
-                            <Image src={this.state.file} />
+                            <Image src={file} />
 
                             <Button
                                 type="submit"

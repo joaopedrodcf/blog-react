@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
 import { contactService } from '../../../services/api';
 
 function sendMessage(values, { resetForm }) {
@@ -60,7 +60,9 @@ const ContactFormik = () => (
                 dirty
             }) => (
                 <Form onSubmit={handleSubmit}>
-                    <h1>Contact me</h1>
+                    <WrapperTitle>
+                        <h3>Contact me</h3>
+                    </WrapperTitle>
                     <Label htmlFor="name">
                         Name:
                         <input

@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { PropTypes } from 'prop-types';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
 
 function handleLogin(values, login, { resetForm }) {
     const { email, password } = values;
@@ -48,7 +48,9 @@ const LoginFormik = ({ login }) => (
                 dirty
             }) => (
                 <Form onSubmit={handleSubmit}>
-                    <h1>Login</h1>
+                    <WrapperTitle>
+                        <h3>Login</h3>
+                    </WrapperTitle>
 
                     <Label htmlFor="email">
                         Email:

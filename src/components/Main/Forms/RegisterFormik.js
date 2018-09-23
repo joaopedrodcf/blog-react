@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 
-import { Label, ErrorLabel, Form, Button } from './style';
+import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
 
 function handleRegister(values, register, { resetForm }) {
     const { email, password } = values;
@@ -50,7 +50,9 @@ const RegisterFormik = ({ register }) => (
                 dirty
             }) => (
                 <Form onSubmit={handleSubmit}>
-                    <h1>Register</h1>
+                    <WrapperTitle>
+                        <h3>Register</h3>
+                    </WrapperTitle>
 
                     <Label htmlFor="email">
                         Email:
