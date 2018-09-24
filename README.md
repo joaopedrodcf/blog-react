@@ -178,3 +178,10 @@ a:active {
 
 - Isolate injectGlobal
 - https://stackoverflow.com/questions/42675725/isolated-styled-components-with-font-face
+
+
+```css
+box-shadow: none;
+```
+- To prevent the red shadow on required inputs in firefox
+- https://stackoverflow.com/questions/3809146/firefox-4-required-input-form-red-border-outline

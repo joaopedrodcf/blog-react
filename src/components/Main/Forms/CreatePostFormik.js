@@ -10,7 +10,10 @@ import {
     LabelFile,
     WrapperTitle,
     Wrapper,
-    Figure
+    Figure,
+    Input,
+    TextArea,
+    WrapperButton
 } from './style';
 import { createPostService } from '../../../services/api';
 
@@ -95,8 +98,8 @@ class CreatePostFormik extends Component {
                                 <h3>Create your post</h3>
                             </WrapperTitle>
                             <Label htmlFor="title">
-                                Title:
-                                <input
+                                Title
+                                <Input
                                     type="text"
                                     name="title"
                                     placeholder="Title"
@@ -112,10 +115,9 @@ class CreatePostFormik extends Component {
                             </ErrorLabel>
 
                             <Label htmlFor="description">
-                                Description:
-                                <textarea
+                                Description
+                                <TextArea
                                     name="description"
-                                    placeholder="Description"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.description}
@@ -130,10 +132,9 @@ class CreatePostFormik extends Component {
                             </ErrorLabel>
 
                             <Label htmlFor="text">
-                                Text:
-                                <textarea
+                                Text
+                                <TextArea
                                     name="text"
-                                    placeholder="Text"
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     value={values.text}
@@ -146,8 +147,8 @@ class CreatePostFormik extends Component {
                             </ErrorLabel>
 
                             <LabelFile htmlFor="image">
-                                Image:
-                                <input
+                                Image
+                                <Input
                                     id="image"
                                     name="image"
                                     type="file"
@@ -163,17 +164,18 @@ class CreatePostFormik extends Component {
                             </LabelFile>
 
                             <Image src={file} />
-
-                            <Button
-                                type="submit"
-                                disabled={
-                                    (Object.keys(errors).length !== 0 &&
-                                        !isSubmitting) ||
-                                    !dirty
-                                }
-                            >
-                                Send message
-                            </Button>
+                            <WrapperButton>
+                                <Button
+                                    type="submit"
+                                    disabled={
+                                        (Object.keys(errors).length !== 0 &&
+                                            !isSubmitting) ||
+                                        !dirty
+                                    }
+                                >
+                                    Send message
+                                </Button>
+                            </WrapperButton>
                         </Form>
                     )}
                 />

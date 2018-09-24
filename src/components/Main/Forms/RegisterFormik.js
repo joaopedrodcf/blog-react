@@ -9,7 +9,9 @@ import {
     Button,
     WrapperTitle,
     Wrapper,
-    Figure
+    Figure,
+    Input,
+    WrapperButton
 } from './style';
 
 function handleRegister(values, register, { resetForm }) {
@@ -63,8 +65,8 @@ const RegisterFormik = ({ register }) => (
                     </WrapperTitle>
 
                     <Label htmlFor="email">
-                        Email:
-                        <input
+                        Email
+                        <Input
                             type="email"
                             name="email"
                             placeholder="Email"
@@ -80,8 +82,8 @@ const RegisterFormik = ({ register }) => (
                     </ErrorLabel>
 
                     <Label htmlFor="password">
-                        Password:
-                        <input
+                        Password
+                        <Input
                             type="password"
                             name="password"
                             placeholder="Password"
@@ -96,17 +98,18 @@ const RegisterFormik = ({ register }) => (
                         {touched.password &&
                             errors.password && <div>{errors.password}</div>}
                     </ErrorLabel>
-
-                    <Button
-                        type="submit"
-                        disabled={
-                            (Object.keys(errors).length !== 0 &&
-                                !isSubmitting) ||
-                            !dirty
-                        }
-                    >
-                        Submit
-                    </Button>
+                    <WrapperButton>
+                        <Button
+                            type="submit"
+                            disabled={
+                                (Object.keys(errors).length !== 0 &&
+                                    !isSubmitting) ||
+                                !dirty
+                            }
+                        >
+                            Register
+                        </Button>
+                    </WrapperButton>
                 </Form>
             )}
         />

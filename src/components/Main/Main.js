@@ -29,7 +29,7 @@ const Main = props => (
     <Container>
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/contactme" component={ContactFormik} />
+            <Route exact path="/contactus" component={ContactFormik} />
             <RouteUnauthenticated
                 {...props}
                 exact

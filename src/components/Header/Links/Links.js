@@ -7,8 +7,8 @@ const Links = ({ reduxIsAuthenticated }) => (
         <Link exact to="/">
             Home
         </Link>
-        <Link exact to="/contactme">
-            Contact me
+        <Link exact to="/contactus">
+            Contact us
         </Link>
         {reduxIsAuthenticated === false && (
             <React.Fragment>
