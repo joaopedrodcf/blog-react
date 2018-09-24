@@ -2,7 +2,15 @@ import React from 'react';
 import { Formik } from 'formik';
 import { PropTypes } from 'prop-types';
 
-import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
+import {
+    Label,
+    ErrorLabel,
+    Form,
+    Button,
+    WrapperTitle,
+    Wrapper,
+    Figure
+} from './style';
 
 function handleLogin(values, login, { resetForm }) {
     const { email, password } = values;
@@ -29,7 +37,7 @@ function validate(values) {
 }
 
 const LoginFormik = ({ login }) => (
-    <div>
+    <Wrapper>
         <Formik
             initialValues={{
                 email: '',
@@ -100,7 +108,11 @@ const LoginFormik = ({ login }) => (
                 </Form>
             )}
         />
-    </div>
+        <Figure
+            src="https://images.unsplash.com/photo-1509702713478-5441be3d911c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=68772eda63c07b218f50935b78067a04&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+            alt="about-me-img"
+        />
+    </Wrapper>
 );
 
 LoginFormik.propTypes = {

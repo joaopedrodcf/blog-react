@@ -2,7 +2,15 @@ import React from 'react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 
-import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
+import {
+    Label,
+    ErrorLabel,
+    Form,
+    Button,
+    WrapperTitle,
+    Wrapper,
+    Figure
+} from './style';
 
 function handleRegister(values, register, { resetForm }) {
     const { email, password } = values;
@@ -29,7 +37,7 @@ function validate(values) {
 }
 
 const RegisterFormik = ({ register }) => (
-    <div>
+    <Wrapper>
         <Formik
             initialValues={{
                 email: '',
@@ -102,7 +110,11 @@ const RegisterFormik = ({ register }) => (
                 </Form>
             )}
         />
-    </div>
+        <Figure
+            src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d15da0da74c68d59d0b9c68e501941c7&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+            alt="about-me-img"
+        />
+    </Wrapper>
 );
 
 RegisterFormik.propTypes = {

@@ -1,21 +1,49 @@
 import styled from 'styled-components';
 
 const borderRadius = props => props.theme.space.md;
-const shadowGray = props => props.theme.shadow.gray;
 const shadowBlack = props => props.theme.shadow.black;
-export const Form = styled.form`
+
+export const Wrapper = styled.div`
+    width: 100%;
     background-color: ${props => props.theme.color.blue.dark};
-    box-shadow: ${shadowGray};
+    display: flex;
+    position: relative;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+`;
+
+export const Figure = styled.img`
+    width: 40%;
+    object-fit: cover;
+    box-shadow: ${props => props.theme.shadow.black};
+
+    @media (max-width: 800px) {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        right: 0;
+    }
+`;
+export const Form = styled.form`
     padding: ${props => props.theme.space.xxl} ${props => props.theme.space.xl}
         ${props => props.theme.space.xl} ${props => props.theme.space.xl};
     border-radius: ${borderRadius};
     display: flex;
     flex-direction: column;
     color: ${props => props.theme.color.white};
-    position: relative;
+    width: 60%;
+
+    z-index: 2;
 
     > h1 {
         text-align: center;
+    }
+
+    @media (max-width: 800px) {
+        width: 100%;
     }
 `;
 

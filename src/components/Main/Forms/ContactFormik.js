@@ -1,7 +1,15 @@
 import React from 'react';
 import { Formik } from 'formik';
 
-import { Label, ErrorLabel, Form, Button, WrapperTitle } from './style';
+import {
+    Label,
+    ErrorLabel,
+    Form,
+    Button,
+    WrapperTitle,
+    Wrapper,
+    Figure
+} from './style';
 import { contactService } from '../../../services/api';
 
 function sendMessage(values, { resetForm }) {
@@ -40,7 +48,7 @@ function validate(values) {
 }
 
 const ContactFormik = () => (
-    <div>
+    <Wrapper>
         <Formik
             initialValues={{
                 name: '',
@@ -122,7 +130,11 @@ const ContactFormik = () => (
                 </Form>
             )}
         />
-    </div>
+        <Figure
+            src="https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1ab326a2c7bef3a9641e7c7c89c2919c&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+            alt="about-me-img"
+        />
+    </Wrapper>
 );
 
 export default ContactFormik;

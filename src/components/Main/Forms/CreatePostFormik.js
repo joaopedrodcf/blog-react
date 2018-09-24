@@ -8,7 +8,9 @@ import {
     Button,
     Image,
     LabelFile,
-    WrapperTitle
+    WrapperTitle,
+    Wrapper,
+    Figure
 } from './style';
 import { createPostService } from '../../../services/api';
 
@@ -67,7 +69,7 @@ class CreatePostFormik extends Component {
     render() {
         const { file } = this.state;
         return (
-            <div>
+            <Wrapper>
                 <Formik
                     initialValues={{
                         title: '',
@@ -175,7 +177,11 @@ class CreatePostFormik extends Component {
                         </Form>
                     )}
                 />
-            </div>
+                <Figure
+                    src="https://images.unsplash.com/photo-1503958014551-3b41f69234d9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=df7263d198f3e94e3dc7cb8621d7a821&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+                    alt="about-me-img"
+                />
+            </Wrapper>
         );
     }
 }
