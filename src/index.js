@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { HashRouter } from 'react-router-dom';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import logger from 'redux-logger';
@@ -18,7 +19,7 @@ const initialState = {
 const store = createStore(
     reducers,
     initialState,
-    applyMiddleware(thunkMiddleware, logger)
+    composeWithDevTools(applyMiddleware(thunkMiddleware, logger))
 );
 
 ReactDOM.render(
