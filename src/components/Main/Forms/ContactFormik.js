@@ -11,8 +11,7 @@ import {
     Figure,
     Input,
     WrapperButton,
-    TextArea,
-    Column
+    TextArea
 } from './style';
 import { contactService } from '../../../services/api';
 
@@ -53,96 +52,92 @@ function validate(values) {
 
 const ContactFormik = () => (
     <Wrapper>
-        <Column>
-            <Formik
-                initialValues={{
-                    name: '',
-                    email: '',
-                    message: ''
-                }}
-                validate={values => validate(values)}
-                onSubmit={(values, ...rest) => sendMessage(values, ...rest)}
-                render={({
-                    values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
-                    handleSubmit,
-                    isSubmitting,
-                    dirty
-                }) => (
-                    <Form onSubmit={handleSubmit}>
-                        <WrapperTitle>
-                            <h3>Contact us</h3>
-                        </WrapperTitle>
-                        <Label htmlFor="name">
-                            Name
-                            <Input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.name}
-                            />
-                        </Label>
-                        <ErrorLabel>
-                            {touched.name &&
-                                errors.name && <div>{errors.name}</div>}
-                        </ErrorLabel>
+        <Formik
+            initialValues={{
+                name: '',
+                email: '',
+                message: ''
+            }}
+            validate={values => validate(values)}
+            onSubmit={(values, ...rest) => sendMessage(values, ...rest)}
+            render={({
+                values,
+                errors,
+                touched,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                dirty
+            }) => (
+                <Form onSubmit={handleSubmit}>
+                    <WrapperTitle>
+                        <h3>Contact us</h3>
+                    </WrapperTitle>
+                    <Label htmlFor="name">
+                        Name
+                        <Input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.name}
+                        />
+                    </Label>
+                    <ErrorLabel>
+                        {touched.name &&
+                            errors.name && <div>{errors.name}</div>}
+                    </ErrorLabel>
 
-                        <Label htmlFor="email">
-                            Email
-                            <Input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.email}
-                            />
-                        </Label>
-                        <ErrorLabel>
-                            {touched.email &&
-                                errors.email && <div>{errors.email}</div>}
-                        </ErrorLabel>
+                    <Label htmlFor="email">
+                        Email
+                        <Input
+                            type="email"
+                            name="email"
+                            placeholder="Email"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                        />
+                    </Label>
+                    <ErrorLabel>
+                        {touched.email &&
+                            errors.email && <div>{errors.email}</div>}
+                    </ErrorLabel>
 
-                        <Label htmlFor="message">
-                            Message
-                            <TextArea
-                                name="message"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                value={values.message}
-                            />
-                        </Label>
-                        <ErrorLabel>
-                            {touched.message &&
-                                errors.message && <div>{errors.message}</div>}
-                        </ErrorLabel>
-                        <WrapperButton>
-                            <Button
-                                type="submit"
-                                disabled={
-                                    (Object.keys(errors).length !== 0 &&
-                                        !isSubmitting) ||
-                                    !dirty
-                                }
-                            >
-                                Send message
-                            </Button>
-                        </WrapperButton>
-                    </Form>
-                )}
-            />
-        </Column>
-        <Column>
-            <Figure
-                src="https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1ab326a2c7bef3a9641e7c7c89c2919c&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
-                alt="about-me-img"
-            />
-        </Column>
+                    <Label htmlFor="message">
+                        Message
+                        <TextArea
+                            name="message"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.message}
+                        />
+                    </Label>
+                    <ErrorLabel>
+                        {touched.message &&
+                            errors.message && <div>{errors.message}</div>}
+                    </ErrorLabel>
+                    <WrapperButton>
+                        <Button
+                            type="submit"
+                            disabled={
+                                (Object.keys(errors).length !== 0 &&
+                                    !isSubmitting) ||
+                                !dirty
+                            }
+                        >
+                            Send message
+                        </Button>
+                    </WrapperButton>
+                </Form>
+            )}
+        />
+        <Figure
+            src="https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1ab326a2c7bef3a9641e7c7c89c2919c&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb"
+            alt="about-me-img"
+        />
     </Wrapper>
 );
 

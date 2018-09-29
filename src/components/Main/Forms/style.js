@@ -35,6 +35,7 @@ export const Form = styled.form`
     flex-direction: column;
     color: ${colorBlack};
     z-index: 2;
+    width: 100%;
 
     > h1 {
         text-align: center;
@@ -50,10 +51,9 @@ export const Column = styled.div`
 `;
 
 export const Figure = styled.img`
-    width: 100%;
-    height: 100%;
+    max-width: 50%;
+    max-height: 20%;
     object-fit: cover;
-    opacity: 0.4;
 
     @media (max-width: 800px) {
         position: absolute;
