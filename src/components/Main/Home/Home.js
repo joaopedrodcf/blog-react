@@ -11,8 +11,8 @@ export default class Home extends React.Component {
 
         this.state = {
             posts: [],
-            currentPage: 1,
-            totalPages: 3
+            currentPage: 0,
+            totalPages: 0
         };
 
         this.getPostsPagination = this.getPostsPagination.bind(this);
@@ -59,31 +59,32 @@ export default class Home extends React.Component {
                 {posts.map(post => (
                     <Post key={post._id} {...post} />
                 ))}
-
-                <ContainerPages>
-                    Page {currentPage} of {totalPages}
-                    <div>
-                        {currentPage - 1 > 0 && (
-                            <PaginationButton
-                                onClick={() =>
-                                    this.getPostsPagination(0, true, false)
-                                }
-                            >
-                                Previous
-                            </PaginationButton>
-                        )}
-                        {buttons}
-                        {currentPage < totalPages && (
-                            <PaginationButton
-                                onClick={() =>
-                                    this.getPostsPagination(0, false, true)
-                                }
-                            >
-                                Next
-                            </PaginationButton>
-                        )}
-                    </div>
-                </ContainerPages>
+                {totalPages !== 0 && (
+                    <ContainerPages>
+                        Page {currentPage} of {totalPages}
+                        <div>
+                            {currentPage - 1 > 0 && (
+                                <PaginationButton
+                                    onClick={() =>
+                                        this.getPostsPagination(0, true, false)
+                                    }
+                                >
+                                    Previous
+                                </PaginationButton>
+                            )}
+                            {buttons}
+                            {currentPage < totalPages && (
+                                <PaginationButton
+                                    onClick={() =>
+                                        this.getPostsPagination(0, false, true)
+                                    }
+                                >
+                                    Next
+                                </PaginationButton>
+                            )}
+                        </div>
+                    </ContainerPages>
+                )}
             </div>
         );
     }
