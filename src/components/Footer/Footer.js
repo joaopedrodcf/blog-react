@@ -5,7 +5,7 @@ import Links from './Links/Links';
 const Footer = () => (
     <Container>
         <Links />
-        <div>© Copyright João Ferreira 2018</div>
+        <div>© João Ferreira 2018</div>
     </Container>
 );
 
