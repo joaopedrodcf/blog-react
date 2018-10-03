@@ -1,5 +1,12 @@
 {
-  "main.js": "static/js/main.7c3cf1b4.js",
-  "main.js.map": "static/js/main.7c3cf1b4.js.map",
-  "static\\media\\logo.png": "static/media/logo.d6d2ea7c.png"
+  "main.js": "/blog-react/static/js/main.fb6f3df1.chunk.js",
+  "main.js.map": "/blog-react/static/js/main.fb6f3df1.chunk.js.map",
+  "static/js/1.0511b504.chunk.js": "/blog-react/static/js/1.0511b504.chunk.js",
+  "static/js/1.0511b504.chunk.js.map": "/blog-react/static/js/1.0511b504.chunk.js.map",
+  "runtime~main.js": "/blog-react/static/js/runtime~main.eb20b7b0.js",
+  "runtime~main.js.map": "/blog-react/static/js/runtime~main.eb20b7b0.js.map",
+  "static/media/logo.png": "/blog-react/static/media/logo.d6d2ea7c.png",
+  "index.html": "/blog-react/index.html",
+  "precache-manifest.2f31310aeea56ac73322876ff8165683.js": "/blog-react/precache-manifest.2f31310aeea56ac73322876ff8165683.js",
+  "service-worker.js": "/blog-react/service-worker.js"
 }
