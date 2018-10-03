@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 
-import Post from '../Post/Post';
 import { ContainerPages, PaginationButton } from './style';
+import Post from '../Post/Post';
 import { getPostsService } from '../../../services/api';
 
 export default class Home extends React.Component {
