@@ -2,6 +2,10 @@
 
 Blog created with React and styled-components
 
+## Prerequisites
+
+This project requires you to use this backend as its API: [blog-react-backend](https://github.com/joaopedrodcf/blog-react-backend)
+
 ## Website
 
 The website is hosted in github pages: [blog-react](https://joaopedrodcf.github.io/blog-react)

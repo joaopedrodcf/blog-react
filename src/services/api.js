@@ -6,6 +6,7 @@ const urlPost = `${process.env.REACT_APP_API_HOST}/api/post`;
 const urlContact = `${process.env.REACT_APP_API_HOST}/api/send-email`;
 const urlGetPosts = `${process.env.REACT_APP_API_HOST}/api/posts/`;
 const urlGetPost = `${process.env.REACT_APP_API_HOST}/api/post/`;
+const urlCreateComment = `${process.env.REACT_APP_API_HOST}/api/comment`;
 
 export function loginService(email, password) {
     return axios
@@ -79,4 +80,23 @@ export function getPostsService(page, currentPage, isMinus, isPlus) {
 
 export function getPost(id) {
     return axios.get(urlGetPost + id);
+}
+
+export function createCommentService(text, postId) {
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('postId', postId);
+
+    const token = localStorage.getItem('token');
+
+    const headers = {
+        'x-access-token': token,
+        'Content-Type': 'application/x-www-form-urlencoded'
+    };
+
+    const config = {
+        headers
+    };
+
+    return axios.post(urlCreateComment, params, config);
 }

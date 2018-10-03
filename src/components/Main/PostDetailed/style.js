@@ -50,3 +50,11 @@ export const Article = styled.div`
         color: ${props => props.theme.color.white};
     }
 `;
+
+export const Comment = styled.div`
+    width: 100%;
+
+    padding: ${props => props.theme.space.md};
+    margin-bottom: ${props => props.theme.space.lg};
+    box-shadow: ${props => props.theme.shadow.black};
+`;
