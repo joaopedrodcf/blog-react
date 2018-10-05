@@ -4,9 +4,13 @@ import { withRouter } from 'react-router-dom';
 import Main from './Main';
 import { login, register } from '../../actions';
 
-const mapStateToProps = ({ reduxIsAuthenticated, email }, ownProps) => ({
-    reduxIsAuthenticated,
+const mapStateToProps = (
+    { isAuthenticated, email, errorMessage },
+    ownProps
+) => ({
+    isAuthenticated,
     email,
+    errorMessage,
     ownProps
 });
 

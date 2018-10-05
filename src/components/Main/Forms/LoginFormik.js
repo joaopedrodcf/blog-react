@@ -11,7 +11,8 @@ import {
     Wrapper,
     Figure,
     Input,
-    WrapperButton
+    WrapperButton,
+    Alert
 } from './style';
 
 function handleLogin(values, login, { resetForm }) {
@@ -38,7 +39,7 @@ function validate(values) {
     return errors;
 }
 
-const LoginFormik = ({ login }) => (
+const LoginFormik = ({ login, errorMessage }) => (
     <Wrapper>
         <Formik
             initialValues={{
@@ -96,6 +97,9 @@ const LoginFormik = ({ login }) => (
                         {touched.password &&
                             errors.password && <div>{errors.password}</div>}
                     </ErrorLabel>
+
+                    {errorMessage && <Alert>{errorMessage}</Alert>}
+
                     <WrapperButton>
                         <Button
                             type="submit"
@@ -119,7 +123,8 @@ const LoginFormik = ({ login }) => (
 );
 
 LoginFormik.propTypes = {
-    login: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string
 };
 
 export default LoginFormik;

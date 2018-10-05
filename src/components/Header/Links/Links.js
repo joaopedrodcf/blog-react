@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from './style';
 
-const Links = ({ reduxIsAuthenticated }) => (
+const Links = ({ isAuthenticated }) => (
     <React.Fragment>
         <Link exact to="/">
             Home
@@ -10,7 +10,7 @@ const Links = ({ reduxIsAuthenticated }) => (
         <Link exact to="/contactus">
             Contact us
         </Link>
-        {reduxIsAuthenticated === false && (
+        {isAuthenticated === false && (
             <React.Fragment>
                 <Link exact to="/login">
                     Login
@@ -21,7 +21,7 @@ const Links = ({ reduxIsAuthenticated }) => (
             </React.Fragment>
         )}
 
-        {reduxIsAuthenticated === true && (
+        {isAuthenticated === true && (
             <Link exact to="/create-post">
                 Create post
             </Link>
@@ -30,7 +30,7 @@ const Links = ({ reduxIsAuthenticated }) => (
 );
 
 Links.propTypes = {
-    reduxIsAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired
 };
 
 export default Links;

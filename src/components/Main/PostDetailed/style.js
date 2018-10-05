@@ -58,3 +58,11 @@ export const Comment = styled.div`
     margin-bottom: ${props => props.theme.space.lg};
     box-shadow: ${props => props.theme.shadow.black};
 `;
+
+export const CommentSection = styled.div`
+    width: 100%;
+
+    padding: ${props => props.theme.space.md};
+    margin-bottom: ${props => props.theme.space.lg};
+    box-shadow: ${props => props.theme.shadow.black};
+`;

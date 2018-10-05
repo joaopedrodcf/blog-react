@@ -20,8 +20,11 @@ The website is hosted in github pages: [blog-react](https://joaopedrodcf.github.
 - [x] Create posts: Users loggedin can create posts
 - [x] Create posts: Image upload through cloudinary
 - [x] Create posts: Shows the email of the user who created it
-- [ ] Posts: Users can comment posts
+- [x] Posts: Users can comment posts
+- [x] Error messages: When user submits recieves an alert
 - [ ] Posts: Like button(A user can only like one time per post)
+- [ ] Comments: Comment form should only appear if loggedin
+- [ ] Comments: Create redux actions for this
 - [ ] Asked funcionality: Favicon
 - [ ] Asked funcionality: Show appname on broser
 - [ ] Asked funcionality: Hash of password in front end(Before the request) !?

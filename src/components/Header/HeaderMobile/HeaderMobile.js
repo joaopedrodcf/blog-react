@@ -6,14 +6,14 @@ import CloseButton from '../CloseButton';
 const HeaderMobile = ({
     toogle,
     handleClick,
-    reduxIsAuthenticated,
+    isAuthenticated,
     email,
     logoutRedux
 }) => (
     <Wrapper toogle={toogle}>
         <CloseButton
             handleClick={handleClick}
-            reduxIsAuthenticated={reduxIsAuthenticated}
+            isAuthenticated={isAuthenticated}
             email={email}
             logoutRedux={logoutRedux}
         />
@@ -23,7 +23,7 @@ const HeaderMobile = ({
 HeaderMobile.propTypes = {
     toogle: PropTypes.bool.isRequired,
     handleClick: PropTypes.func.isRequired,
-    reduxIsAuthenticated: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
     logoutRedux: PropTypes.func.isRequired,
     email: PropTypes.string.isRequired
 };

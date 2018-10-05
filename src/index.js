@@ -12,7 +12,7 @@ import reducers from './reducers';
 import './globalStyle';
 
 const initialState = {
-    reduxIsAuthenticated: !!localStorage.getItem('token'),
+    isAuthenticated: !!localStorage.getItem('token'),
     email: localStorage.getItem('email')
 };
 

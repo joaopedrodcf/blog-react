@@ -11,7 +11,8 @@ import {
     Wrapper,
     Figure,
     Input,
-    WrapperButton
+    WrapperButton,
+    Alert
 } from './style';
 
 function handleRegister(values, register, { resetForm }) {
@@ -38,7 +39,7 @@ function validate(values) {
     return errors;
 }
 
-const RegisterFormik = ({ register }) => (
+const RegisterFormik = ({ register, errorMessage }) => (
     <Wrapper>
         <Formik
             initialValues={{
@@ -98,6 +99,9 @@ const RegisterFormik = ({ register }) => (
                         {touched.password &&
                             errors.password && <div>{errors.password}</div>}
                     </ErrorLabel>
+
+                    {errorMessage && <Alert error>{errorMessage}</Alert>}
+
                     <WrapperButton>
                         <Button
                             type="submit"
@@ -121,7 +125,8 @@ const RegisterFormik = ({ register }) => (
 );
 
 RegisterFormik.propTypes = {
-    register: PropTypes.func.isRequired
+    register: PropTypes.func.isRequired,
+    errorMessage: PropTypes.string
 };
 
 export default RegisterFormik;

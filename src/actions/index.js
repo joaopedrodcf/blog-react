@@ -6,9 +6,10 @@ import { registerService, loginService, logoutService } from '../services/api';
  * action creators
  */
 
-export function loginError() {
+export function loginError(err) {
     return {
-        type: actionTypes.LOGIN_ERROR
+        type: actionTypes.LOGIN_ERROR,
+        payload: { err }
     };
 }
 
@@ -25,9 +26,11 @@ export function loginStart() {
     };
 }
 
-export function registerError() {
+export function registerError(err) {
+    console.log(err);
     return {
-        type: actionTypes.REGISTER_ERROR
+        type: actionTypes.REGISTER_ERROR,
+        payload: { err }
     };
 }
 
@@ -74,8 +77,8 @@ export function login(email, password) {
             () => {
                 dispatch(loginSuccess(email));
             },
-            () => {
-                dispatch(loginError(email));
+            err => {
+                dispatch(loginError(err));
             }
         );
     };
@@ -89,8 +92,8 @@ export function register(email, password) {
             () => {
                 dispatch(registerSuccess(email));
             },
-            () => {
-                dispatch(registerError(email));
+            err => {
+                dispatch(registerError(err));
             }
         );
     };

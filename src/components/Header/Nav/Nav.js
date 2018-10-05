@@ -4,17 +4,17 @@ import NavWrapper from './style'; // TODO this need to be revised
 import LogButton from '../LogButton';
 import Links from '../Links';
 
-const Nav = ({ reduxIsAuthenticated, email, logoutRedux }) => (
+const Nav = ({ isAuthenticated, email, logoutRedux }) => (
     <NavWrapper>
-        <Links reduxIsAuthenticated={reduxIsAuthenticated} />
-        {reduxIsAuthenticated && (
+        <Links isAuthenticated={isAuthenticated} />
+        {isAuthenticated && (
             <LogButton email={email} logoutRedux={logoutRedux} />
         )}
     </NavWrapper>
 );
 
 Nav.propTypes = {
-    reduxIsAuthenticated: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
     email: PropTypes.string,
     logoutRedux: PropTypes.func.isRequired
 };

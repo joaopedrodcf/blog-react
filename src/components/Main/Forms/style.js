@@ -145,8 +145,11 @@ export const Alert = styled.div`
     padding: 10px;
     border-radius: ${borderRadius};
     text-align: center;
-    ${props => !props.error && 'background-color: blue;'};
-    ${props => props.error && 'background-color: red;'};
+    ${props =>
+        !props.error && `background-color:  ${props.theme.color.red.light};`};
+    ${props =>
+        props.error &&
+        `background-color:  ${props.theme.color.blue.default};`};};
 `;
 
 export const Image = styled.img`
