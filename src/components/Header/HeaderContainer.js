@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Header from './Header';
 import { logout } from '../../actions';
 
-const mapStateToProps = ({ reduxIsAuthenticated, email }, ownProps) => ({
-    reduxIsAuthenticated,
+const mapStateToProps = ({ isAuthenticated, email }, ownProps) => ({
+    isAuthenticated,
     email,
     ownProps
 });

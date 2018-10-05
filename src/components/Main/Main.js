@@ -10,18 +10,18 @@ import RegisterFormik from './Forms/RegisterFormik';
 import CreatePostFormik from './Forms/CreatePostFormik';
 import LoginFormik from './Forms/LoginFormik';
 
-const RouteUnauthenticated = ({ reduxIsAuthenticated, ...props }) =>
-    !reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteUnauthenticated = ({ isAuthenticated, ...props }) =>
+    !isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
-const RouteAuthenticated = ({ reduxIsAuthenticated, ...props }) =>
-    reduxIsAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
+const RouteAuthenticated = ({ isAuthenticated, ...props }) =>
+    isAuthenticated ? <Route {...props} /> : <Redirect to="/" />;
 
 RouteUnauthenticated.propTypes = {
-    reduxIsAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired
 };
 
 RouteAuthenticated.propTypes = {
-    reduxIsAuthenticated: PropTypes.bool.isRequired
+    isAuthenticated: PropTypes.bool.isRequired
 };
 
 // Use render instead of component to pass props
@@ -48,7 +48,7 @@ const Main = props => (
                 path="/create-post"
                 render={() => <CreatePostFormik {...props} />}
             />
-            <Route exact path="/post/:id" component={PostDetailed} />
+            <Route exact path="/post/:id" component={PostDetailed} {...props} />
         </Switch>
     </Container>
 );

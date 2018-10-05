@@ -11,7 +11,8 @@ import {
     Figure,
     Input,
     WrapperButton,
-    TextArea
+    TextArea,
+    Alert
 } from './style';
 import { contactService } from '../../../services/api';
 
@@ -119,6 +120,9 @@ const ContactFormik = () => (
                         {touched.message &&
                             errors.message && <div>{errors.message}</div>}
                     </ErrorLabel>
+
+                    {isSubmitting && <Alert error>Sent with success</Alert>}
+
                     <WrapperButton>
                         <Button
                             type="submit"

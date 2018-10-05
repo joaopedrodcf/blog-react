@@ -8,7 +8,7 @@ import HamburguerButton from '../HamburguerButton';
 
 const HeaderWrapper = ({
     handleClick,
-    reduxIsAuthenticated,
+    isAuthenticated,
     email,
     logoutRedux
 }) => (
@@ -17,7 +17,7 @@ const HeaderWrapper = ({
             <Logo />
         </Link>
         <Nav
-            reduxIsAuthenticated={reduxIsAuthenticated}
+            isAuthenticated={isAuthenticated}
             email={email}
             logoutRedux={logoutRedux}
         />
@@ -26,7 +26,7 @@ const HeaderWrapper = ({
 );
 
 HeaderWrapper.propTypes = {
-    reduxIsAuthenticated: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
     handleClick: PropTypes.func.isRequired,
     logoutRedux: PropTypes.func.isRequired,
     email: PropTypes.string.isRequired

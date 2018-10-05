@@ -1,6 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Article, Figure, FigureContainer, Comment } from './style';
+import {
+    Container,
+    Article,
+    Figure,
+    FigureContainer,
+    Comment,
+    CommentSection
+} from './style';
 import { getPost } from '../../../services/api';
 import CommentFormik from '../Forms/CommentFormik';
 
@@ -64,14 +71,23 @@ class PostDetailed extends React.Component {
 
                 <CommentFormik postId={id} />
 
-                <h3>Comments section</h3>
+                <CommentSection>
+                    <h3>Comments section</h3>
 
-                {comments.map(comment => (
-                    <Comment>
-                        <p>Author: {comment.author.email}</p>
-                        <p>text: {comment.text}</p>
-                    </Comment>
-                ))}
+                    {comments.length === 0 && (
+                        <h6>
+                            There are no comments yet *Login to be able to
+                            comment
+                        </h6>
+                    )}
+
+                    {comments.map(comment => (
+                        <Comment>
+                            <p>Author: {comment.author.email}</p>
+                            <p>text: {comment.text}</p>
+                        </Comment>
+                    ))}
+                </CommentSection>
             </React.Fragment>
         );
     }
